@@ -191,7 +191,7 @@ const UI = {
     siteTitle: 'Ethnographic Museum',
     heroTag: 'Culture & Traditions',
     heroTitle: 'Explore the <em>Ethnographic Museum</em>',
-    heroSubtitle: 'Discover the daily life, crafts and traditions of local communities through authentic objects, tools and testimonies.',
+    heroSubtitle: `Welcome to the Ethnographic Museum “Su magasinu de su binu,” a building dating back to the first half of the nineteenth century that was originally used for the processing and storage of wine. The ethnographic museum houses everyday objects that were once part of our grandparents’ daily lives. Where progress has arrived, these objects have been replaced by others that are more efficient and easier to use. Most of the items found in this museum are rooted in an ancient tradition.`
   },
   fr: {
     flag: '🇫🇷',
@@ -205,7 +205,7 @@ const UI = {
     siteTitle: 'Musée Ethnographique',
     heroTag: 'Culture et traditions',
     heroTitle: 'Explorez le <em>Musée Ethnographique</em>',
-    heroSubtitle: 'Découvrez la vie quotidienne, les métiers et les traditions des communautés locales à travers des objets, des outils et des témoignages authentiques.',
+    heroSubtitle: 'Bienvenue au Musée ethnographique “Su magasinu de su binu”, un bâtiment datant de la première moitié du XIXᵉ siècle, à l’origine utilisé pour la transformation et la conservation du vin. Le musée ethnographique abrite des objets du quotidien qui ont fait partie de la vie de nos grands-parents. Là où le progrès est arrivé, ces objets ont été remplacés par d’autres, plus efficaces et plus faciles à utiliser. La plupart des objets présentés dans ce musée sont liés à une tradition très ancienne.',
   },
   de: {
     flag: '🇩🇪',
@@ -219,7 +219,7 @@ const UI = {
     siteTitle: 'Ethnographisches Museum',
     heroTag: 'Kultur & Traditionen',
     heroTitle: 'Entdecken Sie das <em>Ethnographische Museum</em>',
-    heroSubtitle: 'Entdecken Sie das tägliche Leben, Handwerk und die Traditionen lokaler Gemeinschaften durch authentische Objekte, Werkzeuge und Zeugnisse.',
+    heroSubtitle: 'Willkommen im Ethnografischen Museum „Su magasinu de su binu“, einem Gebäude aus der ersten Hälfte des 19. Jahrhunderts, das ursprünglich zur Verarbeitung und Lagerung von Wein diente. Das ethnografische Museum beherbergt Alltagsgegenstände, die einst Teil des täglichen Lebens unserer Großeltern waren. Dort, wo der Fortschritt Einzug gehalten hat, wurden diese Gegenstände durch andere ersetzt, die produktiver und einfacher zu benutzen sind. Ein großer Teil der Objekte in diesem Museum geht auf eine uralte Tradition zurück.',
   },
 };
 
@@ -233,25 +233,25 @@ const filterLabels = {
 const rooms = [
   {
     id:1, era:"Postazione I", category:"grano",
-    img:"https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&q=80",
-    duration:{it:"0:00",en:"0:00",fr:"0:00",de:"0:00"},
-    audio:{it:null,en:null,fr:null,de:null},
+    img:"./assets/grano.jpg",
+    duration:{it:"2:40",en:"2:36",fr:"0:00",de:"0:00"},
+    audio:{it:"./audios/museo_etno/it/grano.m4a",en:"./audios/museo_etno/en/mEtnoGrano.m4a",fr:null,de:null},
     t:{
       it:{
         title:"Il Grano",
         location:"Museo Etnografico",
         description:"Entrando nella sala, si incontra l'area dedicata alla lavorazione del grano, elemento fondamentale per la sopravvivenza del popolo sardo. Il grano dell'isola, frutto di una selezione naturale adattata a condizioni ambientali difficili come maestrale e siccità, era spesso minacciato anche da invasioni di cavallette spinte dai venti africani. La mietitura avveniva a luglio e il grano veniva separato dagli steli tramite il calpestio dei buoi, poi immagazzinato.\n\nIn esposizione si trova una miniatura della macina sarda, \"sa mò\", composta da due piatti di pietra: quello superiore veniva fatto ruotare da un asino bendato per evitare distrazioni e vertigini. Il grano macinato cadeva nella parte inferiore, \"su laccu\", producendo l'integrale. Da qui, con strumenti tradizionali come il setaccio e \"sa parinedda\", la farina veniva separata in diverse consistenze: dalla più fine (su scetti), alla semola fine, grossa, cruschello e crusca.\n\nLa preparazione del pane era compito delle massaie, che si alzavano presto per impastare farina, acqua, sale e lievito naturale (su framentu), ottenuto dalla fermentazione spontanea di un precedente impasto. La lievitazione richiedeva 5-6 ore e il pane così ottenuto durava fino a dieci giorni. Tipico del Sulcis è \"su mustacciu\", una focaccia circolare, e \"su coccòi\", un pane duro decorato con punte ornamentali, che esprimeva creatività e maestria delle donne.\n\nAccanto, troviamo anche le paste tradizionali: malloreddus, tallarinus, e is sappuèddus, piccoli pezzi di pasta schiacciati con le dita. Al centro, sa fregula, usata per minestre di mare, carne o legumi.\n\nTra i pani rituali spiccano \"Is Coccoisi de su Santu\", vere opere d'arte create per il patrono di Sant'Antioco. Riccamente decorati con simboli religiosi come colombe, uva, rose, grano e un fiocco rosso del martirio, testimoniano la devozione delle donne del luogo.\n\nLa sagra di Sant'Antioco Martire, documentata dal 1466, è la più antica della Sardegna. Antioco, giunto da Mauritania Cesariense, fu martirizzato sotto l'impero di Adriano ed è oggi patrono della Sardegna e protettore dei medici. La festa si celebra due settimane dopo Pasqua e prevede una solenne processione con gruppi in costume, carri e cavalli. Il sabato precedente si tiene la processione de \"is coccòis\", durante la quale il pane del Santo viene portato in chiesa, benedetto e collocato alla base del simulacro, dove resta per un anno. Quelli dell'anno precedente vengono conservati come preziose reliquie."
       },
-      en:{title:"Grain",location:"Ethnographic Museum",description:"[English translation to be added]"},
-      fr:{title:"Le Blé",location:"Musée Ethnographique",description:"[Traduction française à ajouter]"},
-      de:{title:"Das Getreide",location:"Ethnographisches Museum",description:"[Deutsche Übersetzung folgt]"},
+      en:{title:"Grain",location:"Ethnographic Museum",description:"Entering the room, you will find the area dedicated to grain processing, a fundamental element for the survival of the Sardinian people. The island’s wheat, the result of natural selection adapted to harsh environmental conditions such as the mistral wind and drought, was often also threatened by invasions of locusts carried by African winds. The harvest took place in July, and the grain was separated from the stalks by oxen trampling it, then stored. \n\nOn display is a miniature of the Sardinian mill, sa mò, made up of two stone plates: the upper one was rotated by a blindfolded donkey to prevent distractions and dizziness. The ground grain fell into the lower part, su laccu, producing wholemeal flour. From there, using traditional tools such as the sieve and sa parinedda, the flour was separated into different textures: from the finest (su scetti), to fine semolina, coarse semolina, bran meal, and bran.\n\n Bread making was the task of the housewives, who rose early to knead flour, water, salt, and natural yeast (su framentu), obtained from the spontaneous fermentation of a previous dough. The leavening took 5–6 hours, and the bread thus obtained could last up to ten days. Typical of the Sulcis area are su mustacciu, a circular flatbread, and su coccòi, a hard bread decorated with ornamental points, which expressed the creativity and skill of the women.\n\nNearby are also traditional pastas: malloreddus, tallarinus, and is sappuèddus, small pieces of dough flattened with the fingers. At the center is sa fregula, used for soups made with seafood, meat, or legumes.\n\nAmong the ritual breads, Is Coccoisi de su Santu stand out — true works of art created in honor of the patron saint of Sant’Antioco. Richly decorated with religious symbols such as doves, grapes, roses, wheat, and a red ribbon symbolizing martyrdom, they testify to the devotion of the local women.\n\n The Feast of Saint Antioco Martyr, documented since 1466, is the oldest in Sardinia. Antioco, who came from Mauretania Caesariensis, was martyred under the reign of Emperor Hadrian and is today the patron saint of Sardinia and protector of physicians. The celebration takes place two weeks after Easter and includes a solemn procession with groups in traditional costumes, carts, and horses. On the preceding Saturday, the “is coccòis” procession is held, during which the Saint’s bread is brought to the church, blessed, and placed at the base of the statue, where it remains for a year. Those from the previous year are kept as precious relics."},
+      fr:{title:"Le Blé",location:"Musée Ethnographique",description:"En entrant dans la salle, on découvre l’espace consacré au travail du blé, élément fondamental pour la survie du peuple sarde. Le blé de l’île, fruit d’une sélection naturelle adaptée à des conditions environnementales difficiles comme le mistral et la sécheresse, était souvent menacé par des invasions de sauterelles poussées par les vents africains. La moisson avait lieu en juillet, et le blé était séparé des tiges grâce au piétinement des bœufs, puis stocké.\n\nOn peut y voir une miniature de la meule sarde, sa mò, composée de deux plaques de pierre : celle du dessus était actionnée par un âne aux yeux bandés pour éviter distractions et vertiges. Le blé moulu tombait dans la partie inférieure, su laccu, produisant de la farine complète. À partir de là, à l’aide d’outils traditionnels comme le tamis et sa parinedda, la farine était triée selon sa finesse : la plus fine (su scetti), la semoule fine, la semoule grossière, le son fin et le son épais.\n\nLa préparation du pain était le domaine des ménagères, qui se levaient tôt pour pétrir la farine, l’eau, le sel et le levain naturel (su framentu), obtenu par la fermentation spontanée d’une pâte précédente. La levée durait cinq à six heures, et le pain ainsi obtenu se conservait jusqu’à dix jours. Typiques du Sulcis sont su mustacciu, une galette circulaire, et su coccòi, un pain dur orné de motifs décoratifs exprimant la créativité et l’habileté des femmes.\n\nÀ côté, on trouve aussi les pâtes traditionnelles : malloreddus, tallarinus et is sappuèddus, petits morceaux de pâte aplatis avec les doigts. Au centre, sa fregula, utilisée dans les soupes de poisson, de viande ou de légumineuses.\n\nParmi les pains rituels se distinguent Is Coccoisi de su Santu, de véritables œuvres d’art créées pour le saint patron de Sant’Antioco. Riches en décorations symboliques — colombes, raisins, roses, épis de blé et ruban rouge du martyre — ils témoignent de la dévotion des femmes du village.\n\nLa fête de Sant’Antioco Martyr, attestée dès 1466, est la plus ancienne de Sardaigne. Antioco, venu de Maurétanie Césarienne, fut martyrisé sous l’empereur Hadrien et est aujourd’hui le patron de la Sardaigne et le protecteur des médecins. La fête se célèbre deux semaines après Pâques et comprend une solennelle procession avec des groupes en costume traditionnel, des chars et des chevaux. Le samedi précédent se déroule la procession des is coccòis, au cours de laquelle le pain du Saint est porté à l’église, béni et déposé au pied du simulacre, où il reste pendant un an. Ceux de l’année précédente sont conservés comme de précieuses reliques."},
+      de:{title:"Das Getreide",location:"Ethnographisches Museum",description: "Beim Betreten des Saales trifft man auf den Bereich, der der Getreideverarbeitung gewidmet ist – einem grundlegenden Element für das Überleben des sardischen Volkes. Das Getreide der Insel, Ergebnis einer natürlichen Auslese, die sich an schwierige Umweltbedingungen wie den Mistral und die Trockenheit angepasst hat, wurde oft auch durch Heuschreckeninvasionen bedroht, die von den afrikanischen Winden herangetrieben wurden. Die Ernte fand im Juli statt, und das Getreide wurde durch das Stampfen der Ochsen von den Halmen getrennt und anschließend eingelagert.\n\nIn der Ausstellung befindet sich ein Miniaturmodell der sardischen Mühle, „sa mò“, bestehend aus zwei Steinscheiben: die obere wurde von einem mit verbundenen Augen versehenen Esel gedreht, um Ablenkung und Schwindel zu vermeiden. Das gemahlene Getreide fiel in den unteren Teil, „su laccu“, wodurch Vollkornmehl entstand. Von dort wurde das Mehl mit traditionellen Werkzeugen wie dem Sieb und „sa parinedda“ in verschiedene Feinheitsgrade getrennt: vom feinsten (su scetti) über feinen und groben Grieß bis hin zu Kleie und Schrot.\n\nDie Zubereitung des Brotes war Aufgabe der Hausfrauen, die früh aufstanden, um Mehl, Wasser, Salz und natürlichen Sauerteig (su framentu) zu kneten, der durch die spontane Gärung eines früheren Teigs gewonnen wurde. Das Gehenlassen dauerte 5–6 Stunden, und das so hergestellte Brot hielt bis zu zehn Tage. Typisch für den Sulcis ist „su mustacciu“, ein rundes Fladenbrot, und „su coccòi“, ein hartes, mit Zierspitzen geschmücktes Brot, das die Kreativität und Kunstfertigkeit der Frauen ausdrückte.\n\nDaneben finden sich auch traditionelle Nudelsorten: malloreddus, tallarinus und is sappuèddus, kleine, mit den Fingern geformte Stückchen Pasta. In der Mitte steht die „sa fregula“, die für Suppen mit Fisch, Fleisch oder Hülsenfrüchten verwendet wird.\n\nUnter den rituellen Broten stechen die „Is Coccoisi de su Santu“ hervor – wahre Kunstwerke, die zu Ehren des Schutzheiligen von Sant’Antioco geschaffen wurden. Reich verziert mit religiösen Symbolen wie Tauben, Trauben, Rosen, Weizen und einer roten Schleife des Martyriums, zeugen sie von der tiefen Frömmigkeit der Frauen des Ortes.\n\nDas Fest des heiligen Märtyrers Antioco, das seit dem Jahr 1466 dokumentiert ist, ist das älteste Fest Sardiniens. Antioco, der aus der Mauretania Cesariense kam, wurde unter der Herrschaft Hadrians zum Märtyrer und ist heute der Schutzheilige Sardiniens und der Ärzte. Das Fest wird zwei Wochen nach Ostern gefeiert und umfasst eine feierliche Prozession mit Gruppen in Tracht, Wagen und Pferden. Am vorhergehenden Samstag findet die Prozession der „is coccòis“ statt, bei der das Brot des Heiligen in die Kirche getragen, gesegnet und am Fuß der Statue niedergelegt wird, wo es ein Jahr lang verbleibt. Die Brote des Vorjahres werden als kostbare Reliquien aufbewahrt."},
     }
   },
   {
     id:2, era:"Postazione II", category:"palma",
-    img:"https://images.unsplash.com/photo-1558618047-f6b70e70e9e0?w=800&q=80",
-    duration:{it:"0:00",en:"0:00",fr:"0:00",de:"0:00"},
-    audio:{it:null,en:null,fr:null,de:null},
+    img:"./assets/palma.jpg",
+    duration:{it:"1:39",en:"1:24",fr:"0:00",de:"0:00"},
+    audio:{it:"./audios/museo_etno/it/palma.mp3",en:"./audios/museo_etno//en/mEtnoPalm.mp3",fr:null,de:null},
     t:{
       it:{
         title:"La Palma Nana",
@@ -265,9 +265,9 @@ const rooms = [
   },
   {
     id:3, era:"Postazione III", category:"vino",
-    img:"https://images.unsplash.com/photo-1474722883778-792e7990302f?w=800&q=80",
-    duration:{it:"0:00",en:"0:00",fr:"0:00",de:"0:00"},
-    audio:{it:null,en:null,fr:null,de:null},
+    img:"./assets/vino.jpg",
+    duration:{it:"2:03",en:"1:50",fr:"0:00",de:"0:00"},
+    audio:{it:"./audios/museo_etno/it/vino.mp3",en:"./audios/museo_etno/en/mEtnoVino.mp3",fr:null,de:null},
     t:{
       it:{
         title:"Il Vino",
@@ -281,9 +281,9 @@ const rooms = [
   },
   {
     id:4, era:"Postazione IV", category:"bisso",
-    img:"https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=800&q=80",
-    duration:{it:"0:00",en:"0:00",fr:"0:00",de:"0:00"},
-    audio:{it:null,en:null,fr:null,de:null},
+    img:"./assets/bisso.jpg",
+    duration:{it:"3:45",en:"2:15",fr:"0:00",de:"0:00"},
+    audio:{it:"./audios/museo_etno/it/bisso.mp3",en:"./audios/museo_etno/en/mEtnoBisso.mp3",fr:null,de:null},
     t:{
       it:{
         title:"Il Bisso",
