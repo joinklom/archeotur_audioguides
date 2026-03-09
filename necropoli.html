@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Necropoli di Is Pirixeddus</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sand: #f5f0e8; --stone: #e8e0d0; --clay: #c4a882;
+    --terra: #6b4a2a; --ink: #1a1410; --smoke: #6b6058;
+    --white: #fdfcfa; --accent: #7a5a8a; --accent-dark: #61486e;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--sand); color: var(--ink); min-height: 100vh; }
+  header { background: var(--white); border-bottom: 1px solid var(--stone); padding: 0 5vw; display: flex; align-items: center; justify-content: space-between; height: 72px; position: sticky; top: 0; z-index: 200; }
+  .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.02em; color: var(--ink); line-height: 1.2; }
+  .logo span { color: var(--accent); }
+  .header-right { display: flex; align-items: center; gap: 20px; }
+  .header-sub { font-size: 0.72rem; color: var(--smoke); letter-spacing: 0.12em; text-transform: uppercase; }
+  .lang-selector { position: relative; }
+  .lang-btn { display: flex; align-items: center; gap: 8px; background: none; border: 1px solid var(--stone); padding: 7px 14px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; color: var(--ink); border-radius: 4px; transition: border-color 0.2s; }
+  .lang-btn:hover { border-color: var(--accent); }
+  .lang-btn .chevron { font-size: 0.6rem; color: var(--smoke); transition: transform 0.2s; margin-left: 2px; }
+  .lang-selector.open .chevron { transform: rotate(180deg); }
+  .lang-dropdown { position: absolute; top: calc(100% + 6px); right: 0; background: var(--white); border: 1px solid var(--stone); min-width: 160px; box-shadow: 0 8px 24px rgba(26,20,16,0.12); opacity: 0; pointer-events: none; transform: translateY(-6px); transition: opacity 0.2s, transform 0.2s; z-index: 300; }
+  .lang-selector.open .lang-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+  .lang-option { display: flex; align-items: center; gap: 10px; padding: 10px 16px; cursor: pointer; font-size: 0.82rem; border: none; background: none; width: 100%; font-family: 'DM Sans', sans-serif; color: var(--ink); transition: background 0.15s; }
+  .lang-option:hover { background: var(--sand); }
+  .lang-option.active { color: var(--accent); font-weight: 500; }
+  .hero { padding: 70px 5vw 50px; max-width: 720px; }
+  .hero-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 4px 12px; border-radius: 2px; margin-bottom: 20px; opacity: 0.8; }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 300; line-height: 1.15; margin-bottom: 16px; }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero p { font-size: 0.95rem; color: var(--smoke); line-height: 1.7; max-width: 520px; }
+  .filter-bar { padding: 0 5vw 36px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-btn { background: none; border: 1px solid var(--stone); color: var(--smoke); font-family: 'DM Sans', sans-serif; font-size: 0.78rem; letter-spacing: 0.08em; padding: 6px 16px; border-radius: 100px; cursor: pointer; transition: all 0.2s; }
+  .filter-btn:hover, .filter-btn.active { background: var(--ink); border-color: var(--ink); color: var(--white); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2px; padding: 0 5vw; margin-bottom: 80px; }
+  .card { background: var(--white); cursor: pointer; overflow: hidden; transition: transform 0.3s ease; }
+  .card:hover { transform: translateY(-3px); }
+  .card:hover .card-img img { transform: scale(1.05); }
+  .card-img { width: 100%; aspect-ratio: 4/3; overflow: hidden; position: relative; background: var(--stone); }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
+  .card-era { position: absolute; top: 12px; left: 12px; background: rgba(26,20,16,0.75); color: #e8c990; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px; backdrop-filter: blur(4px); }
+  .audio-badge { position: absolute; top: 12px; right: 12px; background: var(--accent); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .audio-badge svg { width: 14px; height: 14px; fill: white; }
+  .card-body { padding: 20px 22px 18px; }
+  .card-location { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); margin-bottom: 6px; }
+  .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; line-height: 1.2; margin-bottom: 10px; }
+  .card-text { font-size: 0.82rem; color: var(--smoke); line-height: 1.65; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; padding: 14px 22px; border-top: 1px solid var(--stone); }
+  .card-duration { font-size: 0.72rem; color: var(--smoke); }
+  .btn-listen { background: none; border: none; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; color: var(--accent); cursor: pointer; display: flex; align-items: center; gap: 6px; font-weight: 500; transition: gap 0.2s; }
+  .btn-listen:hover { gap: 10px; }
+  .modal-overlay { position: fixed; inset: 0; background: rgba(26,20,16,0.6); backdrop-filter: blur(6px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal { background: var(--white); max-width: 780px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; transform: translateY(20px); transition: transform 0.3s; }
+  .modal-overlay.open .modal { transform: translateY(0); }
+  .modal-close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.9); border: 1px solid var(--stone); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; z-index: 10; color: var(--ink); transition: background 0.2s; }
+  .modal-close:hover { background: var(--stone); }
+  .modal-img { width: 100%; aspect-ratio: 16/7; overflow: hidden; }
+  .modal-img img { width: 100%; height: 100%; object-fit: cover; }
+  .modal-content { padding: 36px 40px 40px; }
+  .modal-meta { display: flex; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
+  .modal-tag { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); border: 1px solid var(--stone); padding: 3px 10px; }
+  .modal-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 300; line-height: 1.1; margin-bottom: 20px; }
+  .modal-description { font-size: 0.9rem; line-height: 1.8; color: var(--smoke); margin-bottom: 32px; }
+  .audio-player { background: var(--sand); border: 1px solid var(--stone); padding: 20px 24px; }
+  .player-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .player-label { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); display: flex; align-items: center; gap: 8px; }
+  .player-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--clay); }
+  .lang-pill { display: inline-flex; align-items: center; gap: 5px; background: var(--stone); border-radius: 100px; padding: 3px 10px 3px 7px; font-size: 0.7rem; color: var(--smoke); }
+  .player-controls { display: flex; align-items: center; gap: 16px; }
+  .play-btn { width: 48px; height: 48px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, transform 0.15s; }
+  .play-btn:hover { background: var(--accent-dark); transform: scale(1.05); }
+  .play-btn svg { width: 18px; height: 18px; fill: white; margin-left: 2px; }
+  .play-btn.playing svg { margin-left: 0; }
+  .player-track { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .progress-bar { width: 100%; height: 3px; background: var(--stone); border-radius: 2px; cursor: pointer; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; width: 0%; transition: width 0.1s linear; }
+  .player-times { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--smoke); }
+  .volume-control { display: flex; align-items: center; gap: 8px; }
+  .volume-control svg { width: 16px; height: 16px; fill: var(--smoke); flex-shrink: 0; }
+  input[type=range] { -webkit-appearance: none; width: 80px; height: 3px; background: var(--stone); border-radius: 2px; outline: none; cursor: pointer; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); cursor: pointer; }
+  footer { border-top: 1px solid var(--stone); padding: 36px 5vw; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; background: var(--white); }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--smoke); }
+  .footer-copy { font-size: 0.75rem; color: var(--clay); }
+  ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: var(--sand); } ::-webkit-scrollbar-thumb { background: var(--clay); border-radius: 3px; }
+  @media (max-width: 540px) {
+    header { padding: 0 4vw; }
+    .header-sub { display: none; }
+    .hero { padding: 50px 4vw 36px; }
+    .filter-bar, .grid { padding: 0 4vw; }
+    .modal-content { padding: 24px 20px 28px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo" id="logoText">Necropoli di Is Pirixeddus</div>
+  <div class="header-right">
+    <div class="header-sub" id="headerSub"></div>
+    <div class="lang-selector" id="langSelector">
+      <button class="lang-btn" onclick="toggleLangDropdown()">
+        <span id="currentFlag"></span>
+        <span id="currentLangLabel"></span>
+        <span class="chevron">▼</span>
+      </button>
+      <div class="lang-dropdown">
+        <button class="lang-option" data-lang="it" onclick="setLanguage('it')">🇮🇹 Italiano</button>
+        <button class="lang-option" data-lang="en" onclick="setLanguage('en')">🇬🇧 English</button>
+        <button class="lang-option" data-lang="fr" onclick="setLanguage('fr')">🇫🇷 Français</button>
+        <button class="lang-option" data-lang="de" onclick="setLanguage('de')">🇩🇪 Deutsch</button>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-tag" id="heroTag"></div>
+  <h1 id="heroTitle"></h1>
+  <p id="heroSubtitle"></p>
+</section>
+<div class="filter-bar" id="filterBar"></div>
+<div class="grid" id="grid"></div>
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    <div class="modal-img"><img id="modalImg" src="" alt=""></div>
+    <div class="modal-content">
+      <div class="modal-meta">
+        <span class="modal-tag" id="modalEra"></span>
+        <span class="modal-tag" id="modalLoc"></span>
+      </div>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <div class="modal-description" id="modalDesc"></div>
+      <div class="audio-player">
+        <div class="player-header">
+          <div class="player-label" id="playerLabel"></div>
+          <div class="lang-pill"><span id="langPillFlag"></span>&nbsp;<span id="langPillText"></span></div>
+        </div>
+        <div class="player-controls">
+          <button class="play-btn" id="playBtn" onclick="togglePlay()">
+            <svg id="playIcon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          </button>
+          <div class="player-track">
+            <div class="progress-bar" id="progressBar" onclick="seekAudio(event)">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="player-times"><span id="currentTime">0:00</span><span id="totalTime">0:00</span></div>
+          </div>
+          <div class="volume-control">
+            <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.8" oninput="setVolume(this.value)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="footer-logo" id="footerLogo">Necropoli di Is Pirixeddus</div>
+  <div class="footer-copy" id="footerCopy"></div>
+</footer>
+<script>
+const UI = {
+  it: {
+    flag: '🇮🇹',
+    langName: 'Italiano',
+    filterAll: 'Tutti',
+    listenBtn: 'Ascolta →',
+    playerLabel: 'Audioguida',
+    footerCopy: 'Audioguida — Necropoli di Is Pirixeddus',
+    noAudio: 'Aggiungi il file audio nel campo audio dell\'oggetto.',
+    headerSub: 'Audioguida digitale',
+    siteTitle: 'Necropoli di Is Pirixeddus',
+    heroTag: 'Sepolture preistoriche',
+    heroTitle: 'Scopri la <em>Necropoli di Is Pirixeddus</em>',
+    heroSubtitle: 'Un complesso funerario di straordinaria importanza, con tombe scavate nella roccia che testimoniano le credenze e i riti dell\'età del bronzo.',
+  },
+  en: {
+    flag: '🇬🇧',
+    langName: 'English',
+    filterAll: 'All',
+    listenBtn: 'Listen →',
+    playerLabel: 'Audio Guide',
+    footerCopy: 'Audio guide — Necropoli di Is Pirixeddus',
+    noAudio: 'Add the audio file in the audio field of the object.',
+    headerSub: 'Digital Audio Guide',
+    siteTitle: 'Necropolis of Is Pirixeddus',
+    heroTag: 'Prehistoric Burials',
+    heroTitle: 'Discover the <em>Necropolis of Is Pirixeddus</em>',
+    heroSubtitle: 'A funerary complex of extraordinary importance, with rock-cut tombs bearing witness to the beliefs and rites of the Bronze Age.',
+  },
+  fr: {
+    flag: '🇫🇷',
+    langName: 'Français',
+    filterAll: 'Tous',
+    listenBtn: 'Écouter →',
+    playerLabel: 'Audioguide',
+    footerCopy: 'Audioguide — Necropoli di Is Pirixeddus',
+    noAudio: 'Ajoutez le fichier audio dans le champ audio de l\'objet.',
+    headerSub: 'Audioguide numérique',
+    siteTitle: 'Nécropole d\'Is Pirixeddus',
+    heroTag: 'Sépultures préhistoriques',
+    heroTitle: 'Découvrez la <em>Nécropole d\'Is Pirixeddus</em>',
+    heroSubtitle: 'Un complexe funéraire d\'une importance extraordinaire, avec des tombes taillées dans la roche témoignant des croyances et rites de l\'âge du bronze.',
+  },
+  de: {
+    flag: '🇩🇪',
+    langName: 'Deutsch',
+    filterAll: 'Alle',
+    listenBtn: 'Anhören →',
+    playerLabel: 'Audioguide',
+    footerCopy: 'Audioguide — Necropoli di Is Pirixeddus',
+    noAudio: 'Fügen Sie die Audiodatei im Feld audio des Objekts hinzu.',
+    headerSub: 'Digitaler Audioguide',
+    siteTitle: 'Nekropole von Is Pirixeddus',
+    heroTag: 'Prähistorische Bestattungen',
+    heroTitle: 'Entdecken Sie die <em>Nekropole von Is Pirixeddus</em>',
+    heroSubtitle: 'Ein Begräbniskomplex von außergewöhnlicher Bedeutung, mit in den Fels gehauenen Gräbern, die von den Glaubensvorstellungen und Riten der Bronzezeit zeugen.',
+  },
+};
+
+const filterCats = ["tutti","tombe","corredi"];
+const filterLabels = {it:["Tutti","Tombe","Corredi"],en:["All","Tombs","Goods"],fr:["Tous","Tombes","Mobilier"],de:["Alle","Gräber","Beigaben"],};
+const rooms = [
+  {id:1,era:"Età del Bronzo",category:"tombe",img:"https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&q=80",duration:{it:"4:45",en:"4:40",fr:"4:55",de:"5:00"},audio:{it:null,en:null,fr:null,de:null},t:{it:{title:"Tombe a Fossa",location:"Settore Nord",description:"[Inserire descrizione delle Tombe a Fossa]\n\n[Testo aggiuntivo placeholder.]"},en:{title:"Pit Tombs",location:"North Sector",description:"[Insert description of the Pit Tombs]\n\n[Additional placeholder text.]"},fr:{title:"Tombes en Fosse",location:"Secteur Nord",description:"[Insérez la description des Tombes en Fosse]\n\n[Texte supplémentaire placeholder.]"},de:{title:"Grubengräber",location:"Nordsektor",description:"[Beschreibung der Grubengräber einfügen]\n\n[Weiterer Platzhaltertext.]"},}},
+  {id:2,era:"Età del Bronzo",category:"tombe",img:"https://images.unsplash.com/photo-1605106702842-01a887a31122?w=800&q=80",duration:{it:"3:55",en:"3:50",fr:"4:02",de:"4:10"},audio:{it:null,en:null,fr:null,de:null},t:{it:{title:"Domus de Janas",location:"Settore Sud",description:"[Inserire descrizione delle Domus de Janas]\n\n[Testo aggiuntivo placeholder.]"},en:{title:"Domus de Janas",location:"South Sector",description:"[Insert description of the Domus de Janas]\n\n[Additional placeholder text.]"},fr:{title:"Domus de Janas",location:"Secteur Sud",description:"[Insérez la description des Domus de Janas]\n\n[Texte supplémentaire placeholder.]"},de:{title:"Domus de Janas",location:"Südsektor",description:"[Beschreibung der Domus de Janas einfügen]\n\n[Weiterer Platzhaltertext.]"},}},
+  {id:3,era:"Eneolitico",category:"corredi",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",duration:{it:"3:20",en:"3:15",fr:"3:28",de:"3:35"},audio:{it:null,en:null,fr:null,de:null},t:{it:{title:"Corredi Funerari",location:"Area espositiva",description:"[Inserire descrizione dei Corredi Funerari]\n\n[Testo aggiuntivo placeholder.]"},en:{title:"Funerary Goods",location:"Exhibition area",description:"[Insert description of the Funerary Goods]\n\n[Additional placeholder text.]"},fr:{title:"Mobilier Funéraire",location:"Zone d'exposition",description:"[Insérez la description du Mobilier Funéraire]\n\n[Texte supplémentaire placeholder.]"},de:{title:"Grabbeigaben",location:"Ausstellungsbereich",description:"[Beschreibung der Grabbeigaben einfügen]\n\n[Weiterer Platzhaltertext.]"},}},
+];
+
+
+let lang = 'it', filter = 'all', curAudio = null, curRoom = null, playing = false;
+
+function setLanguage(l) {
+  lang = l;
+  const u = UI[l];
+  document.documentElement.lang = l;
+  document.getElementById('currentFlag').textContent = u.flag;
+  document.getElementById('currentLangLabel').textContent = l.toUpperCase();
+  document.querySelectorAll('.lang-option').forEach(el => el.classList.toggle('active', el.dataset.lang === l));
+  document.getElementById('langSelector').classList.remove('open');
+  document.getElementById('headerSub').textContent = u.headerSub;
+  document.getElementById('heroTag').textContent = u.heroTag;
+  document.getElementById('heroTitle').innerHTML = u.heroTitle;
+  document.getElementById('heroSubtitle').textContent = u.heroSubtitle;
+  document.getElementById('footerCopy').textContent = u.footerCopy;
+  renderFilters(); renderCards();
+  if (document.getElementById('modalOverlay').classList.contains('open') && curRoom) refreshModal(curRoom.id);
+}
+function toggleLangDropdown() { document.getElementById('langSelector').classList.toggle('open'); }
+document.addEventListener('click', e => { if (!document.getElementById('langSelector').contains(e.target)) document.getElementById('langSelector').classList.remove('open'); });
+
+function renderFilters() {
+  document.getElementById('filterBar').innerHTML = filterCats.map((c,i) =>
+    `<button class="filter-btn ${filter===c?'active':''}" onclick="applyFilter('${c}',this)">${filterLabels[lang][i]}</button>`
+  ).join('');
+}
+function applyFilter(c, btn) {
+  filter = c;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCards();
+}
+function renderCards() {
+  const u = UI[lang];
+  const list = filter === 'all' || filter === filterCats[0] ? rooms : rooms.filter(r => r.category === filter);
+  document.getElementById('grid').innerHTML = list.map(r => {
+    const t = r.t[lang];
+    const snippet = t.description.replace(/\n/g,' ').slice(0,160)+'…';
+    return `<div class="card" onclick="openModal(${r.id})">
+      <div class="card-img">
+        <img src="${r.img}" alt="${t.title}" loading="lazy">
+        <div class="card-era">${r.era}</div>
+        <div class="audio-badge"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg></div>
+      </div>
+      <div class="card-body">
+        <div class="card-location">${t.location}</div>
+        <div class="card-title">${t.title}</div>
+        <div class="card-text">${snippet}</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-duration">⏱ ${r.duration[lang]}</span>
+        <button class="btn-listen">${u.listenBtn}</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+function openModal(id) {
+  curRoom = rooms.find(x => x.id === id);
+  if (!curRoom) return;
+  stopAudio(); refreshModal(id); setupAudio();
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function refreshModal(id) {
+  const r = rooms.find(x => x.id === id);
+  const t = r.t[lang]; const u = UI[lang];
+  document.getElementById('modalImg').src = r.img;
+  document.getElementById('modalImg').alt = t.title;
+  document.getElementById('modalEra').textContent = r.era;
+  document.getElementById('modalLoc').textContent = t.location;
+  document.getElementById('modalTitle').textContent = t.title;
+  document.getElementById('modalDesc').innerHTML = t.description.replace(/\n\n/g,'</p><p style="margin-top:12px">');
+  document.getElementById('playerLabel').textContent = u.playerLabel;
+  document.getElementById('langPillFlag').textContent = u.flag;
+  document.getElementById('langPillText').textContent = u.langName;
+  document.getElementById('totalTime').textContent = r.duration[lang];
+  document.getElementById('progressFill').style.width = '0%';
+  document.getElementById('currentTime').textContent = '0:00';
+}
+function setupAudio() {
+  const src = curRoom.audio[lang];
+  if (src) {
+    curAudio = new Audio(src);
+    curAudio.volume = parseFloat(document.getElementById('volumeSlider').value);
+    curAudio.addEventListener('timeupdate', updateProgress);
+    curAudio.addEventListener('ended', () => { playing=false; updatePlayIcon(); document.getElementById('progressFill').style.width='0%'; document.getElementById('currentTime').textContent='0:00'; });
+    curAudio.addEventListener('loadedmetadata', () => { document.getElementById('totalTime').textContent = fmt(curAudio.duration); });
+  } else { curAudio = null; }
+}
+function closeModal(e) { if (e.target===document.getElementById('modalOverlay')) closeModalDirect(); }
+function closeModalDirect() { stopAudio(); curRoom=null; document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow=''; }
+function fmt(s) { if(isNaN(s))return'0:00'; return`${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`; }
+function togglePlay() { if(!curAudio){alert(UI[lang].noAudio);return;} if(playing){curAudio.pause();playing=false;}else{curAudio.play();playing=true;} updatePlayIcon(); }
+function stopAudio() { if(curAudio){curAudio.pause();curAudio.currentTime=0;} playing=false; updatePlayIcon(); }
+function updatePlayIcon() {
+  const icon=document.getElementById('playIcon'), btn=document.getElementById('playBtn');
+  if(playing){icon.innerHTML='<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';btn.classList.add('playing');}
+  else{icon.innerHTML='<polygon points="5,3 19,12 5,21"/>';btn.classList.remove('playing');}
+}
+function updateProgress() { if(!curAudio)return; document.getElementById('progressFill').style.width=(curAudio.currentTime/curAudio.duration*100)+'%'; document.getElementById('currentTime').textContent=fmt(curAudio.currentTime); }
+function seekAudio(e) { if(!curAudio||!curAudio.duration)return; const r=document.getElementById('progressBar').getBoundingClientRect(); curAudio.currentTime=((e.clientX-r.left)/r.width)*curAudio.duration; }
+function setVolume(v) { if(curAudio)curAudio.volume=parseFloat(v); }
+document.addEventListener('keydown', e => {
+  if(e.key==='Escape')closeModalDirect();
+  if(e.key===' '&&document.getElementById('modalOverlay').classList.contains('open')){e.preventDefault();togglePlay();}
+});
+setLanguage('it');
+</script>
+</body>
+</html>
