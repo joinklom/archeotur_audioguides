@@ -177,7 +177,7 @@ const UI = {
     siteTitle: 'Museo Etnografico',
     heroTag: 'Cultura e tradizioni',
     heroTitle: 'Esplora il <em>Museo Etnografico</em>',
-    heroSubtitle: 'Scopri la vita quotidiana, i mestieri e le tradizioni delle comunità locali attraverso oggetti, strumenti e testimonianze autentiche.',
+    heroSubtitle: 'Benvenuti nel Museo Etnografico "Su magasinu de su binu", edificio che risale alla prima metà dell\'Ottocento e che era originariamente utilizzato per la lavorazione e la conservazione del vino. Il museo etnografico contiene quegli oggetti di uso comune che hanno fatto parte della vita quotidiana dei nostri nonni. Dove è arrivato il progresso questi oggetti sono stati sostituiti da altri più produttivi e più facili da usare. Gran parte degli oggetti che si trovano in questo museo si rifanno a una tradizione antichissima.',
   },
   en: {
     flag: '🇬🇧',
@@ -223,12 +223,78 @@ const UI = {
   },
 };
 
-const filterCats = ["tutti","vita","mestieri","feste"];
-const filterLabels = {it:["Tutti","Vita","Mestieri","Feste"],en:["All","Life","Crafts","Festivals"],fr:["Tous","Vie","Métiers","Fêtes"],de:["Alle","Leben","Handwerk","Feste"],};
+const filterCats = ["tutti","grano","palma","vino","bisso"];
+const filterLabels = {
+  it:["Tutti","Il Grano","La Palma Nana","Il Vino","Il Bisso"],
+  en:["All","Grain","Dwarf Palm","Wine","Sea Silk"],
+  fr:["Tous","Le Blé","Le Palmier Nain","Le Vin","Le Byssus"],
+  de:["Alle","Das Getreide","Die Zwergpalme","Der Wein","Der Byssus"],
+};
 const rooms = [
-  {id:1,era:"Sala I",category:"vita",img:"https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80",duration:{it:"3:20",en:"3:15",fr:"3:28",de:"3:32"},audio:{it:null,en:null,fr:null,de:null},t:{it:{title:"Vita Quotidiana",location:"Piano Terra",description:"[Inserire descrizione della sala Vita Quotidiana]\n\n[Testo aggiuntivo placeholder.]"},en:{title:"Daily Life",location:"Ground Floor",description:"[Insert description of the Daily Life room]\n\n[Additional placeholder text.]"},fr:{title:"Vie Quotidienne",location:"Rez-de-chaussée",description:"[Insérez la description de la salle Vie Quotidienne]\n\n[Texte supplémentaire placeholder.]"},de:{title:"Alltägliches Leben",location:"Erdgeschoss",description:"[Beschreibung des Raums Alltägliches Leben einfügen]\n\n[Weiterer Platzhaltertext.]"},}},
-  {id:2,era:"Sala II",category:"mestieri",img:"https://images.unsplash.com/photo-1558618047-f6b70e70e9e0?w=800&q=80",duration:{it:"4:10",en:"4:05",fr:"4:18",de:"4:22"},audio:{it:null,en:null,fr:null,de:null},t:{it:{title:"Mestieri Tradizionali",location:"Piano Terra",description:"[Inserire descrizione della sala Mestieri Tradizionali]\n\n[Testo aggiuntivo placeholder.]"},en:{title:"Traditional Crafts",location:"Ground Floor",description:"[Insert description of the Traditional Crafts room]\n\n[Additional placeholder text.]"},fr:{title:"Métiers Traditionnels",location:"Rez-de-chaussée",description:"[Insérez la description de la salle Métiers Traditionnels]\n\n[Texte supplémentaire placeholder.]"},de:{title:"Traditionelle Handwerke",location:"Erdgeschoss",description:"[Beschreibung des Raums Traditionelle Handwerke einfügen]\n\n[Weiterer Platzhaltertext.]"},}},
-  {id:3,era:"Sala III",category:"feste",img:"https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80",duration:{it:"2:55",en:"2:50",fr:"3:00",de:"3:05"},audio:{it:null,en:null,fr:null,de:null},t:{it:{title:"Feste e Riti",location:"Primo Piano",description:"[Inserire descrizione della sala Feste e Riti]\n\n[Testo aggiuntivo placeholder.]"},en:{title:"Festivals & Rituals",location:"First Floor",description:"[Insert description of the Festivals & Rituals room]\n\n[Additional placeholder text.]"},fr:{title:"Fêtes et Rituels",location:"Premier Étage",description:"[Insérez la description de la salle Fêtes et Rituels]\n\n[Texte supplémentaire placeholder.]"},de:{title:"Feste und Rituale",location:"Erstes Stockwerk",description:"[Beschreibung des Raums Feste und Rituale einfügen]\n\n[Weiterer Platzhaltertext.]"},}},
+  {
+    id:1, era:"Sala I", category:"grano",
+    img:"https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&q=80",
+    duration:{it:"0:00",en:"0:00",fr:"0:00",de:"0:00"},
+    audio:{it:null,en:null,fr:null,de:null},
+    t:{
+      it:{
+        title:"Il Grano",
+        location:"Museo Etnografico",
+        description:"Entrando nella sala, si incontra l'area dedicata alla lavorazione del grano, elemento fondamentale per la sopravvivenza del popolo sardo. Il grano dell'isola, frutto di una selezione naturale adattata a condizioni ambientali difficili come maestrale e siccità, era spesso minacciato anche da invasioni di cavallette spinte dai venti africani. La mietitura avveniva a luglio e il grano veniva separato dagli steli tramite il calpestio dei buoi, poi immagazzinato.\n\nIn esposizione si trova una miniatura della macina sarda, \"sa mò\", composta da due piatti di pietra: quello superiore veniva fatto ruotare da un asino bendato per evitare distrazioni e vertigini. Il grano macinato cadeva nella parte inferiore, \"su laccu\", producendo l'integrale. Da qui, con strumenti tradizionali come il setaccio e \"sa parinedda\", la farina veniva separata in diverse consistenze: dalla più fine (su scetti), alla semola fine, grossa, cruschello e crusca.\n\nLa preparazione del pane era compito delle massaie, che si alzavano presto per impastare farina, acqua, sale e lievito naturale (su framentu), ottenuto dalla fermentazione spontanea di un precedente impasto. La lievitazione richiedeva 5-6 ore e il pane così ottenuto durava fino a dieci giorni. Tipico del Sulcis è \"su mustacciu\", una focaccia circolare, e \"su coccòi\", un pane duro decorato con punte ornamentali, che esprimeva creatività e maestria delle donne.\n\nAccanto, troviamo anche le paste tradizionali: malloreddus, tallarinus, e is sappuèddus, piccoli pezzi di pasta schiacciati con le dita. Al centro, sa fregula, usata per minestre di mare, carne o legumi.\n\nTra i pani rituali spiccano \"Is Coccoisi de su Santu\", vere opere d'arte create per il patrono di Sant'Antioco. Riccamente decorati con simboli religiosi come colombe, uva, rose, grano e un fiocco rosso del martirio, testimoniano la devozione delle donne del luogo.\n\nLa sagra di Sant'Antioco Martire, documentata dal 1466, è la più antica della Sardegna. Antioco, giunto da Mauritania Cesariense, fu martirizzato sotto l'impero di Adriano ed è oggi patrono della Sardegna e protettore dei medici. La festa si celebra due settimane dopo Pasqua e prevede una solenne processione con gruppi in costume, carri e cavalli. Il sabato precedente si tiene la processione de \"is coccòis\", durante la quale il pane del Santo viene portato in chiesa, benedetto e collocato alla base del simulacro, dove resta per un anno. Quelli dell'anno precedente vengono conservati come preziose reliquie."
+      },
+      en:{title:"Grain",location:"Ethnographic Museum",description:"[English translation to be added]"},
+      fr:{title:"Le Blé",location:"Musée Ethnographique",description:"[Traduction française à ajouter]"},
+      de:{title:"Das Getreide",location:"Ethnographisches Museum",description:"[Deutsche Übersetzung folgt]"},
+    }
+  },
+  {
+    id:2, era:"Sala II", category:"palma",
+    img:"https://images.unsplash.com/photo-1558618047-f6b70e70e9e0?w=800&q=80",
+    duration:{it:"0:00",en:"0:00",fr:"0:00",de:"0:00"},
+    audio:{it:null,en:null,fr:null,de:null},
+    t:{
+      it:{
+        title:"La Palma Nana",
+        location:"Museo Etnografico",
+        description:"Un settore di grandissima importanza per l'economia di Sant'Antioco è quello dedicato ai manufatti realizzati con la palma nana. In Sardegna questa pianta autoctona tende a mantenersi bassa per resistere alla forza del maestrale. Neanche gli incendi riescono a scalfire la sua resistenza: la radice non muore e la pianta si sviluppa nuovamente.\n\nLo sfruttamento subito in tutto il Mediterraneo ha fatto sì che la palma nana rischiasse l'estinzione. Sull'isola di Sant'Antioco è molto diffusa e venne sfruttata in particolar modo nel periodo successivo al ripopolamento dell'isola, avvenuto nella seconda metà del Settecento. Fino agli anni Sessanta la lavorazione della palma divenne la risorsa economica principale delle persone più povere che abitavano negli ipogei punici, nel rione delle cosiddette \"grotte\".\n\nNel mese di maggio iniziava la raccolta delle foglie, che venivano messe ad essiccare durante il periodo estivo, per essere poi separate in filamenti e lavorate. Le foglie della palma nana, ricche di fibre molto resistenti, venivano impiegate in vari tipi di lavorazioni artigianali. Si ricavavano pennelli, scopette per togliere la cenere dal camino, scope per i pavimenti, borse, corde fini e grosse, il filetto utilizzato come spago e per l'impagliatura delle sedie, borse, ventagli e il crine per l'imbottitura dei materassi.\n\nTutti questi oggetti erano fondamentali perché costituivano la principale fonte di sostentamento economico dei \"gruttaiusu\". Gli abitanti delle grotte, infatti, si recavano nei paesi del Sulcis per barattare o vendere i manufatti intrecciati con la palma nana."
+      },
+      en:{title:"Dwarf Palm",location:"Ethnographic Museum",description:"[English translation to be added]"},
+      fr:{title:"Le Palmier Nain",location:"Musée Ethnographique",description:"[Traduction française à ajouter]"},
+      de:{title:"Die Zwergpalme",location:"Ethnographisches Museum",description:"[Deutsche Übersetzung folgt]"},
+    }
+  },
+  {
+    id:3, era:"Sala III", category:"vino",
+    img:"https://images.unsplash.com/photo-1474722883778-792e7990302f?w=800&q=80",
+    duration:{it:"0:00",en:"0:00",fr:"0:00",de:"0:00"},
+    audio:{it:null,en:null,fr:null,de:null},
+    t:{
+      it:{
+        title:"Il Vino",
+        location:"Museo Etnografico",
+        description:"Elemento di grandissima importanza per l'economia dell'isola di Sant'Antioco, la lavorazione della vite ha origini antichissime che risalgono al periodo preistorico. Nella Sulci romana si ebbe una grandissima produzione di vino. Il tipico vitigno di Sant'Antioco è conosciuto con il nome di Carignano del Sulcis, in campidanese \"Axina 'e Spagna\", apprezzato per l'alto valore zuccherino. Si tratta di un vitigno lavorato molto basso, ad alberello, per evitare i danni causati dai venti di Maestrale e di Scirocco. Uva nera di grandissimo valore, viene attualmente utilizzata per la produzione di vini eccellenti (Turriga, Terre Brune, Arruga, Sardus Pater). Nel pannello sono esposti gli attrezzi per la lavorazione della vite: il pennato, le forbici, i segacci; le zucche secche di diverse dimensioni che diventavano le borracce per il vinello; il sacchetto di iuta per cospargere lo zolfo con cui proteggere la vite.\n\nNella parete in alto si possono distinguere gli attrezzi per la lavorazione della terra: aratri, erpici, zappe, ceste per vendemmiare (is goffasa) e cestini più piccoli. Proseguendo verso destra vedete le tenaglie per castrare i buoi. Curiosi i bastoni con una doppia funzione: da una parte la paletta in ferro per togliere il fango dall'aratro, dall'altra un chiodo per stimolare i buoi a camminare. A destra si trova la macina in ferro per le fave, alimento prediletto dagli animali adibiti alle arature. Nell'angolo gran parte degli attrezzi utili alla mietitura del grano e del foraggio e alle successive lavorazioni. In particolare si possono notare recipienti in legno di diverse dimensioni. Sono \"le misure\", antichi sistemi di misurazione delle sementi. Nel cesto in basso potete vedere i legumi coltivati a Sant'Antioco: le cicerchie, le lenticchie bianche e nere, i ceci, le fave e i cereali come il grano duro, l'avena e l'orzo. In alto a destra sono esposti gli aratri di legno usati in Sardegna sino alla seconda guerra mondiale."
+      },
+      en:{title:"Wine",location:"Ethnographic Museum",description:"[English translation to be added]"},
+      fr:{title:"Le Vin",location:"Musée Ethnographique",description:"[Traduction française à ajouter]"},
+      de:{title:"Der Wein",location:"Ethnographisches Museum",description:"[Deutsche Übersetzung folgt]"},
+    }
+  },
+  {
+    id:4, era:"Sala IV", category:"bisso",
+    img:"https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=800&q=80",
+    duration:{it:"0:00",en:"0:00",fr:"0:00",de:"0:00"},
+    audio:{it:null,en:null,fr:null,de:null},
+    t:{
+      it:{
+        title:"Il Bisso",
+        location:"Museo Etnografico",
+        description:"La Pinna Nobilis, il più grande mollusco del Mediterraneo, conosciuto volgarmente con il nome di \"nàccara\" o \"nàcchera\", può raggiungere la notevole dimensione di centoventi centimetri di altezza. Questo mollusco si adatta molto bene alle acque basse, poco agitate e ricche di plancton. Si insedia nelle coste preferendo le praterie di posidonia oceanica.\n\nLa nàccara, negli ultimi decenni, ha rischiato l'estinzione a causa della pesca a strascico. Tale rischio ha portato la Comunità Europea a intervenire con una direttiva che ne vieta la pesca. Il mollusco è commestibile ma non prelibato; il suo sfruttamento principale era dovuto a un particolare filamento che si sviluppa all'interno della conchiglia e fuoriesce dalla base. La Pinna Nobilis si ancora ai fondali sabbiosi in posizione eretta, con la punta conficcata nel fondo; dalla base la conchiglia secerne una sostanza che, a contatto con l'acqua marina, si indurisce solidificandosi e creando una sorta di radice che tiene il mollusco ancorato al fondale sabbioso.\n\nIl bisso, o seta di mare, che ne deriva, è un filamento molto pregiato usato per la creazione dei più svariati tessuti. Il prezioso tessuto venne lavorato anche dai Fenici, dagli Egizi e dalle popolazioni italiche che si affacciavano sulle coste della Puglia, della Sicilia e della Sardegna. Con esso si producevano guanti, calze, cravatte, scialli: oggetti di lusso destinati a una committenza regale o ecclesiastica.\n\nAll'inizio del ventesimo secolo nacquero a Taranto e a Sant'Antioco iniziative mirate alla rivalutazione e alla valorizzazione del bisso. Tali iniziative portarono alla nascita di veri e propri laboratori artigianali. Alcuni oggetti risalenti alla prima metà del ventesimo secolo vennero tessuti nella scuola artigianale di Italo Diana a Sant'Antioco: si tratta di una cravatta, di uno scialle, di diversi arazzi, di giubbetti e di cuffiette da bambina.\n\nLe Pinnae Nobilis venivano pescate dalla barca con un attrezzo in ferro; successivamente dai molluschi veniva estratto il bisso grezzo. Iniziava così la pulitura: il bisso veniva battuto per eliminare le incrostazioni, lavato, asciugato, pettinato e infine cardato e filato. La difficile reperibilità della materia prima e la lunga lavorazione necessaria per filare il bisso facevano sì che si trattasse di un prodotto di lusso destinato alla più alta committenza.\n\nI manufatti realizzati in puro bisso marino mostrano, al contatto con la luce solare, uno splendore dorato e luccicante. Al tatto si presenta setoso. All'interno della conchiglia poteva trovarsi talvolta qualche perlina senza alcun valore. Il bisso marino è molto sottile, naturalmente di colore bruno tendente al castano dorato, e poteva essere colorato con la porpora tratta dai murici.\n\nNegli anni Venti l'artigiano Italo Diana creò a Sant'Antioco una scuola di tessitura del bisso e nel 1929 fu premiato con la medaglia d'oro per questa attività. L'anno successivo, in occasione della fondazione di Carbonia e dell'inaugurazione del porto di Sant'Antioco, lo stesso Diana realizzò, insieme a una sua allieva, un arazzo in bisso da donare a Mussolini, ma la moltitudine accorsa per la visita del Duce impedì la consegna e l'arazzo rimase al Diana.\n\nLa tradizione antichissima della lavorazione del bisso a Sant'Antioco non ebbe termine con la scuola di tessitura di Diana, ma proseguì grazie agli insegnamenti lasciati ad alcune donne. Nel pannello sono esposti gli attrezzi per la filatura, alcuni filamenti, una cravatta tessuta negli anni Cinquanta e diverse foto di manufatti in bisso."
+      },
+      en:{title:"Sea Silk",location:"Ethnographic Museum",description:"[English translation to be added]"},
+      fr:{title:"Le Byssus",location:"Musée Ethnographique",description:"[Traduction française à ajouter]"},
+      de:{title:"Der Byssus",location:"Ethnographisches Museum",description:"[Deutsche Übersetzung folgt]"},
+    }
+  },
 ];
 
 

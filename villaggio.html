@@ -177,7 +177,7 @@ const UI = {
     siteTitle: 'Villaggio Ipogeo',
     heroTag: 'Archeologia sotterranea',
     heroTitle: 'Scopri il <em>Villaggio Ipogeo</em>',
-    heroSubtitle: 'Un viaggio nel sottosuolo tra ambienti scavati nella roccia, abitazioni preistoriche e testimonianze di vita millenaria.',
+    heroSubtitle: 'Sottostante il centro storico di Sant\'Antioco si cela un\'antica necropoli cartaginese, le cui tombe vennero scavate dai Punici tra il IV e il III secolo a.C. Dai recenti studi si stima che l\'area si estenda per circa dieci ettari e contenga circa millecinquecento tombe a camera. Ogni tomba ha due parti fondamentali: il corridoio di accesso, chiamato dromos, e una camera destinata alla deposizione dei defunti e dei loro corredi. Con la fine della dominazione punica molti ipogei vennero abbandonati; altri furono riutilizzati in epoca romana, altri ancora trasformati in catacombe dai primi cristiani. A metà del Settecento alcuni dei nuovi arrivati aprirono gli ipogei e li riutilizzarono come abitazioni, chiamandole "grotte". Calde d\'inverno e fresche d\'estate, le grotte ospitavano famiglie numerose.',
   },
   en: {
     flag: '🇬🇧',
@@ -223,12 +223,62 @@ const UI = {
   },
 };
 
-const filterCats = ["tutti","abitazioni","rituali"];
-const filterLabels = {it:["Tutti","Abitazioni","Rituali"],en:["All","Dwellings","Rituals"],fr:["Tous","Habitations","Rituels"],de:["Alle","Behausungen","Rituale"],};
+const filterCats = ["tutti","grotta"];
+const filterLabels = {
+  it:["Tutte","Le Grotte"],
+  en:["All","The Caves"],
+  fr:["Toutes","Les Grottes"],
+  de:["Alle","Die Grotten"],
+};
 const rooms = [
-  {id:1,era:"Zona A",category:"abitazioni",img:"https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80",duration:{it:"3:45",en:"3:40",fr:"3:52",de:"3:58"},audio:{it:null,en:null,fr:null,de:null},t:{it:{title:"Abitazioni Rupestri",location:"Livello -1",description:"[Inserire descrizione delle Abitazioni Rupestri]\n\n[Testo aggiuntivo placeholder.]"},en:{title:"Rock-Cut Dwellings",location:"Level -1",description:"[Insert description of the Rock-Cut Dwellings]\n\n[Additional placeholder text.]"},fr:{title:"Habitations Rupestres",location:"Niveau -1",description:"[Insérez la description des Habitations Rupestres]\n\n[Texte supplémentaire placeholder.]"},de:{title:"Felsbehausungen",location:"Ebene -1",description:"[Beschreibung der Felsbehausungen einfügen]\n\n[Weiterer Platzhaltertext.]"},}},
-  {id:2,era:"Zona B",category:"rituali",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",duration:{it:"4:20",en:"4:15",fr:"4:28",de:"4:35"},audio:{it:null,en:null,fr:null,de:null},t:{it:{title:"Spazi Rituali",location:"Livello -2",description:"[Inserire descrizione degli Spazi Rituali]\n\n[Testo aggiuntivo placeholder.]"},en:{title:"Ritual Spaces",location:"Level -2",description:"[Insert description of the Ritual Spaces]\n\n[Additional placeholder text.]"},fr:{title:"Espaces Rituels",location:"Niveau -2",description:"[Insérez la description des Espaces Rituels]\n\n[Texte supplémentaire placeholder.]"},de:{title:"Rituelle Räume",location:"Ebene -2",description:"[Beschreibung der Rituellen Räume einfügen]\n\n[Weiterer Platzhaltertext.]"},}},
-  {id:3,era:"Zona C",category:"abitazioni",img:"https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",duration:{it:"3:10",en:"3:05",fr:"3:18",de:"3:22"},audio:{it:null,en:null,fr:null,de:null},t:{it:{title:"Gallerie e Cunicoli",location:"Livello -2",description:"[Inserire descrizione delle Gallerie e Cunicoli]\n\n[Testo aggiuntivo placeholder.]"},en:{title:"Galleries & Tunnels",location:"Level -2",description:"[Insert description of the Galleries & Tunnels]\n\n[Additional placeholder text.]"},fr:{title:"Galeries et Tunnels",location:"Niveau -2",description:"[Insérez la description des Galeries et Tunnels]\n\n[Texte supplémentaire placeholder.]"},de:{title:"Galerien und Tunnel",location:"Ebene -2",description:"[Beschreibung der Galerien und Tunnel einfügen]\n\n[Weiterer Platzhaltertext.]"},}},
+  {
+    id:1, era:"Grotta N.21", category:"grotta",
+    img:"https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80",
+    duration:{it:"0:00",en:"0:00",fr:"0:00",de:"0:00"},
+    audio:{it:null,en:null,fr:null,de:null},
+    t:{
+      it:{
+        title:'Grotta N.21 "La Grotta della Signora Antonietta"',
+        location:"Villaggio Ipogeo — Sant'Antioco",
+        description:"Questa è la più piccola del villaggio, ma anche una delle più significative. La signora Antonietta nacque qui e vi abitò fino al 1998. Pur avendo poi ricevuto un alloggio comunale, continuò a utilizzare la grotta fino alla fine degli anni Novanta, curandola con grande dedizione: puliva, imbiancava con la calce e intrecciava oggetti con le foglie di palma nana, come su filettu, corde e scope di varie forme.\n\nLe nicchie, ampliate nel tempo, venivano usate per riporre gli oggetti di uso quotidiano. Solo negli ultimi anni Antonietta fece costruire un piccolo muro per separare la cucina dalla camera; prima di allora, in tutte le grotte si viveva in un unico ambiente.\n\nLa sua storia racconta la vita semplice ma dignitosa delle famiglie del rione. All'ingresso della grotta si trovava la cucina, con un piccolo camino e il vasellame disposto nelle nicchie. Ogni mattina le donne andavano alla fonte de Is Solus, oggi Piazza Italia, portando brocche d'acqua sulla testa e sui fianchi.\n\nI bambini venivano affidati ai proprietari terrieri per piccoli lavori, mentre le bambine aiutavano nelle case delle famiglie benestanti. Durante l'inverno le famiglie raggiungevano a piedi le località di Triga e Canai, per raccogliere erbe selvatiche; d'estate raccoglievano fichi d'india e altri frutti da scambiare in paese. Grazie al baratto potevano procurarsi pane, latte o formaggio, variando una dieta povera e per lo più vegetariana.\n\nNei mesi di maggio e giugno si intrecciavano le foglie di palma nana per creare corde, ventagli e imbottiture; in autunno si raccoglievano le drupe di lentischio per ricavare l'olio. Durante la bassa marea si raccoglievano patelle, vongole e granchi nella laguna.\n\nLa sera, con il tramonto, le famiglie si riunivano all'aperto: gli anziani raccontavano storie, le donne intrecciavano scope e i bambini giocavano nel rione. A partire dagli anni Cinquanta il Comune di Sant'Antioco iniziò il trasferimento delle famiglie nelle case popolari, un processo lento che si concluse solo nei primi anni Ottanta."
+      },
+      en:{title:'Cave No.21 "Signora Antonietta\'s Cave"',location:"Hypogean Village — Sant'Antioco",description:"[English translation to be added]"},
+      fr:{title:'Grotte N°21 "La Grotte de la Signora Antonietta"',location:"Village Hypogée — Sant'Antioco",description:"[Traduction française à ajouter]"},
+      de:{title:'Grotte Nr.21 "Die Grotte der Signora Antonietta"',location:"Hypogäisches Dorf — Sant'Antioco",description:"[Deutsche Übersetzung folgt]"},
+    }
+  },
+  {
+    id:2, era:"Grotta N.3", category:"grotta",
+    img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    duration:{it:"0:00",en:"0:00",fr:"0:00",de:"0:00"},
+    audio:{it:null,en:null,fr:null,de:null},
+    t:{
+      it:{
+        title:'Grotta N.3 "La Grotta dei Ricordi"',
+        location:"Villaggio Ipogeo — Sant'Antioco",
+        description:"Questa grotta, utilizzata fino alla fine degli anni Sessanta, ospitava una famiglia molto povera. La camera mostra tracce di un tramezzo, probabilmente abbattuto per creare più spazio, il cui crollo ha causato il cedimento di parte del soffitto. Sul fondo, la camera è stata ingrandita con lo scavo di un vano usato come luogo di riposo, probabilmente chiuso con una tenda. Alla destra dell'ingresso si trova un camino utilizzato per riscaldare, asciugare l'ambiente e cucinare. Il vetro posizionato a terra mette in sicurezza l'apertura e permette di vedere la riproduzione di un testimone di scavo, una tomba punica con copie degli oggetti funerari originari.\n\nAll'interno è allestita una mostra storico-fotografica che racconta la vita nel villaggio dalle fine dell'Ottocento agli anni Sessanta del Novecento. Le fotografie mostrano momenti di vita quotidiana, la semplicità degli ambienti e l'evoluzione del rione. Una delle immagini più famose, scattata da Vittorio Alinari nel 1914, ritrae una coppia, Ciu Canteddu e Cia Annicca Pau, in un momento domestico. Un'altra testimonianza toccante è una cartolina dei primi del Novecento con la scritta \"Grotta troglodita\", che mostra una famiglia all'uscio, con un bambino nudo in braccio.\n\nOgni anno, nel mese di dicembre, la grotta viene allestita per ospitare la Sacra Famiglia durante l'evento natalizio Su Nascimentu in Gruta, un grande presepe vivente che coinvolge tutto il rione con oltre duecento figuranti."
+      },
+      en:{title:'Cave No.3 "The Cave of Memories"',location:"Hypogean Village — Sant'Antioco",description:"[English translation to be added]"},
+      fr:{title:'Grotte N°3 "La Grotte des Souvenirs"',location:"Village Hypogée — Sant'Antioco",description:"[Traduction française à ajouter]"},
+      de:{title:'Grotte Nr.3 "Die Grotte der Erinnerungen"',location:"Hypogäisches Dorf — Sant'Antioco",description:"[Deutsche Übersetzung folgt]"},
+    }
+  },
+  {
+    id:3, era:"Grotta N.31", category:"grotta",
+    img:"https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",
+    duration:{it:"0:00",en:"0:00",fr:"0:00",de:"0:00"},
+    audio:{it:null,en:null,fr:null,de:null},
+    t:{
+      it:{
+        title:'Grotta N.31 "Sa Grutta Manna"',
+        location:"Villaggio Ipogeo — Sant'Antioco",
+        description:"È la grotta più grande. Le pareti mostrano varchi scavati per rendere accessibili le camere laterali. Il progetto di restauro ha previsto la chiusura di alcuni ingressi per garantire la stabilità dell'area e creare i camminamenti esterni. La prima camera mantiene la struttura punica originale, quadrangolare, con tramezzo centrale. Sulla destra è stata ricostruita una sepoltura punica integra, con frammenti lignei della cassa e oggetti di corredo.\n\nAttraverso il varco nella parete sinistra si accede a una seconda camera funeraria con un forno di epoca più recente, testimonianza dei riutilizzi nel tempo. Sul fondo si trova una terza camera con un ingresso occluso. Dal varco destro si accede a un'altra stanza dove è allestita una ricostruzione del periodo di riutilizzo, tra il 1754 e il 1966. Qui si può vedere un letto in ferro con oggetti d'uso quotidiano: il vaso da notte, il porta lavamani e altri utensili domestici. L'ultima camera rappresenta la cucina, con il focolare e gli utensili del periodo."
+      },
+      en:{title:'Cave No.31 "Sa Grutta Manna"',location:"Hypogean Village — Sant'Antioco",description:"[English translation to be added]"},
+      fr:{title:'Grotte N°31 "Sa Grutta Manna"',location:"Village Hypogée — Sant'Antioco",description:"[Traduction française à ajouter]"},
+      de:{title:'Grotte Nr.31 "Sa Grutta Manna"',location:"Hypogäisches Dorf — Sant'Antioco",description:"[Deutsche Übersetzung folgt]"},
+    }
+  },
 ];
 
 
