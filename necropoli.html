@@ -166,71 +166,181 @@
 <script>
 const UI = {
   it: {
-    flag: '🇮🇹',
+    flag: '\u{1F1EE}\u{1F1F9}',
     langName: 'Italiano',
     filterAll: 'Tutti',
-    listenBtn: 'Ascolta →',
+    listenBtn: 'Ascolta \u2192',
     playerLabel: 'Audioguida',
-    footerCopy: 'Audioguida — Necropoli di Is Pirixeddus',
-    noAudio: 'Aggiungi il file audio nel campo audio dell\'oggetto.',
+    footerCopy: 'Audioguida \u2014 Necropoli di Is Pirixeddus',
+    noAudio: "Aggiungi il file audio nel campo audio dell'oggetto.",
     headerSub: 'Audioguida digitale',
     siteTitle: 'Necropoli di Is Pirixeddus',
-    heroTag: 'Sepolture preistoriche',
-    heroTitle: 'Scopri la <em>Necropoli di Is Pirixeddus</em>',
-    heroSubtitle: 'Un complesso funerario di straordinaria importanza, con tombe scavate nella roccia che testimoniano le credenze e i riti dell\'età del bronzo.',
+    heroTag: 'Necropoli punica, romana e cristiana',
+    heroTitle: 'Benvenuti nella antica <em>necropoli di Sulcis</em>',
+    heroSubtitle: 'Con questa audioguida vi faremo scoprire il magico mondo sotterraneo delle antiche civilt\u00e0 puniche, romane e cristiane, le loro tradizioni ed il culto dei morti.',
   },
   en: {
-    flag: '🇬🇧',
+    flag: '\u{1F1EC}\u{1F1E7}',
     langName: 'English',
     filterAll: 'All',
-    listenBtn: 'Listen →',
+    listenBtn: 'Listen \u2192',
     playerLabel: 'Audio Guide',
-    footerCopy: 'Audio guide — Necropoli di Is Pirixeddus',
+    footerCopy: 'Audio guide \u2014 Necropolis of Is Pirixeddus',
     noAudio: 'Add the audio file in the audio field of the object.',
     headerSub: 'Digital Audio Guide',
     siteTitle: 'Necropolis of Is Pirixeddus',
-    heroTag: 'Prehistoric Burials',
-    heroTitle: 'Discover the <em>Necropolis of Is Pirixeddus</em>',
-    heroSubtitle: 'A funerary complex of extraordinary importance, with rock-cut tombs bearing witness to the beliefs and rites of the Bronze Age.',
+    heroTag: 'Punic, Roman and Christian Necropolis',
+    heroTitle: 'Welcome to the ancient <em>necropolis of Sulcis</em>',
+    heroSubtitle: 'This audio guide will take you through the magical underground world of the ancient Punic, Roman and Christian civilisations, their traditions and the cult of the dead.',
   },
   fr: {
-    flag: '🇫🇷',
-    langName: 'Français',
+    flag: '\u{1F1EB}\u{1F1F7}',
+    langName: 'Fran\u00e7ais',
     filterAll: 'Tous',
-    listenBtn: 'Écouter →',
+    listenBtn: '\u00c9couter \u2192',
     playerLabel: 'Audioguide',
-    footerCopy: 'Audioguide — Necropoli di Is Pirixeddus',
-    noAudio: 'Ajoutez le fichier audio dans le champ audio de l\'objet.',
-    headerSub: 'Audioguide numérique',
-    siteTitle: 'Nécropole d\'Is Pirixeddus',
-    heroTag: 'Sépultures préhistoriques',
-    heroTitle: 'Découvrez la <em>Nécropole d\'Is Pirixeddus</em>',
-    heroSubtitle: 'Un complexe funéraire d\'une importance extraordinaire, avec des tombes taillées dans la roche témoignant des croyances et rites de l\'âge du bronze.',
+    footerCopy: 'Audioguide \u2014 N\u00e9cropole d\'Is Pirixeddus',
+    noAudio: "Ajoutez le fichier audio dans le champ audio de l'objet.",
+    headerSub: 'Audioguide num\u00e9rique',
+    siteTitle: "N\u00e9cropole d'Is Pirixeddus",
+    heroTag: 'N\u00e9cropole punique, romaine et chr\u00e9tienne',
+    heroTitle: 'Bienvenue dans l\'ancienne <em>n\u00e9cropole de Sulcis</em>',
+    heroSubtitle: 'Cet audioguide vous fera d\u00e9couvrir le monde souterrain magique des anciennes civilisations puniques, romaines et chr\u00e9tiennes, leurs traditions et le culte des morts.',
   },
   de: {
-    flag: '🇩🇪',
+    flag: '\u{1F1E9}\u{1F1EA}',
     langName: 'Deutsch',
     filterAll: 'Alle',
-    listenBtn: 'Anhören →',
+    listenBtn: 'Anh\u00f6ren \u2192',
     playerLabel: 'Audioguide',
-    footerCopy: 'Audioguide — Necropoli di Is Pirixeddus',
-    noAudio: 'Fügen Sie die Audiodatei im Feld audio des Objekts hinzu.',
+    footerCopy: 'Audioguide \u2014 Nekropole von Is Pirixeddus',
+    noAudio: 'F\u00fcgen Sie die Audiodatei im Feld audio des Objekts hinzu.',
     headerSub: 'Digitaler Audioguide',
     siteTitle: 'Nekropole von Is Pirixeddus',
-    heroTag: 'Prähistorische Bestattungen',
-    heroTitle: 'Entdecken Sie die <em>Nekropole von Is Pirixeddus</em>',
-    heroSubtitle: 'Ein Begräbniskomplex von außergewöhnlicher Bedeutung, mit in den Fels gehauenen Gräbern, die von den Glaubensvorstellungen und Riten der Bronzezeit zeugen.',
+    heroTag: 'Punische, r\u00f6mische und christliche Nekropole',
+    heroTitle: 'Willkommen in der antiken <em>Nekropole von Sulcis</em>',
+    heroSubtitle: 'Dieser Audioguide f\u00fchrt Sie durch die magische unterirdische Welt der antiken punischen, r\u00f6mischen und christlichen Zivilisationen, ihre Traditionen und den Totenkult.',
   },
 };
 
-const filterCats = ["tutti","tombe","corredi"];
-const filterLabels = {it:["Tutti","Tombe","Corredi"],en:["All","Tombs","Goods"],fr:["Tous","Tombes","Mobilier"],de:["Alle","Gräber","Beigaben"],};
-const rooms = [
-  {id:1,era:"Età del Bronzo",category:"tombe",img:"https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&q=80",duration:{it:"4:45",en:"4:40",fr:"4:55",de:"5:00"},audio:{it:null,en:null,fr:null,de:null},t:{it:{title:"Tombe a Fossa",location:"Settore Nord",description:"[Inserire descrizione delle Tombe a Fossa]\n\n[Testo aggiuntivo placeholder.]"},en:{title:"Pit Tombs",location:"North Sector",description:"[Insert description of the Pit Tombs]\n\n[Additional placeholder text.]"},fr:{title:"Tombes en Fosse",location:"Secteur Nord",description:"[Insérez la description des Tombes en Fosse]\n\n[Texte supplémentaire placeholder.]"},de:{title:"Grubengräber",location:"Nordsektor",description:"[Beschreibung der Grubengräber einfügen]\n\n[Weiterer Platzhaltertext.]"},}},
-  {id:2,era:"Età del Bronzo",category:"tombe",img:"https://images.unsplash.com/photo-1605106702842-01a887a31122?w=800&q=80",duration:{it:"3:55",en:"3:50",fr:"4:02",de:"4:10"},audio:{it:null,en:null,fr:null,de:null},t:{it:{title:"Domus de Janas",location:"Settore Sud",description:"[Inserire descrizione delle Domus de Janas]\n\n[Testo aggiuntivo placeholder.]"},en:{title:"Domus de Janas",location:"South Sector",description:"[Insert description of the Domus de Janas]\n\n[Additional placeholder text.]"},fr:{title:"Domus de Janas",location:"Secteur Sud",description:"[Insérez la description des Domus de Janas]\n\n[Texte supplémentaire placeholder.]"},de:{title:"Domus de Janas",location:"Südsektor",description:"[Beschreibung der Domus de Janas einfügen]\n\n[Weiterer Platzhaltertext.]"},}},
-  {id:3,era:"Eneolitico",category:"corredi",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",duration:{it:"3:20",en:"3:15",fr:"3:28",de:"3:35"},audio:{it:null,en:null,fr:null,de:null},t:{it:{title:"Corredi Funerari",location:"Area espositiva",description:"[Inserire descrizione dei Corredi Funerari]\n\n[Testo aggiuntivo placeholder.]"},en:{title:"Funerary Goods",location:"Exhibition area",description:"[Insert description of the Funerary Goods]\n\n[Additional placeholder text.]"},fr:{title:"Mobilier Funéraire",location:"Zone d'exposition",description:"[Insérez la description du Mobilier Funéraire]\n\n[Texte supplémentaire placeholder.]"},de:{title:"Grabbeigaben",location:"Ausstellungsbereich",description:"[Beschreibung der Grabbeigaben einfügen]\n\n[Weiterer Platzhaltertext.]"},}},
-];
+const filterCats = ["tutti","punica","romana","cristiana"];
+const filterLabels = {
+  it: ["Tutti","Fase punica","Fase romana","Fase cristiana"],
+  en: ["All","Punic phase","Roman phase","Christian phase"],
+  fr: ["Tous","Phase punique","Phase romaine","Phase chr\u00e9tienne"],
+  de: ["Alle","Punische Phase","R\u00f6mische Phase","Christliche Phase"],
+};
 
+const rooms = [
+  {
+    id: 1,
+    era: "Urbanistica antica",
+    category: "punica",
+    img: "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&q=80",
+    duration: {it:"5:00",en:"5:00",fr:"5:00",de:"5:00"},
+    audio: {it:null,en:null,fr:null,de:null},
+    t: {
+      it: {
+        title: "La necropoli di Is Pirixeddus nell'urbanistica antica",
+        location: "Is Pirixeddus",
+        description: "Le testimonianze funerarie della Sulcis fenicia sono molto limitate a causa della sovrapposizione della cittadina moderna mentre la monumentalit\u00e0 e l'estensione di quelle del periodo punico raccontano molto bene la floridezza dell'insediamento a partire dal VI secolo a.C.\n\nLe abitazioni in questi secoli continuano a svilupparsi alle spalle dell'area costiera, luogo fondamentale per le attivit\u00e0 economiche della cittadina, ed erano delimitate ad ovest e a sud da un grande impianto funerario.\n\nL'area al momento del suo massimo sviluppo doveva avere una superficie di circa 10 ettari ed oltre un migliaio di ipogei.\n\nAttualmente conosciamo tre settori della necropoli punica di Sulcis, forse in parte uniti progressivamente in epoca antica.\n\nUno era ubicato al di sotto della Basilica di Sant'Antioco Martire e riutilizzato come complesso catacombale. Il secondo, posto sul versante occidentale del colle di Castello, \u00e8 stato riadattato per scopi abitativi dagli abitanti della moderna Sant'Antioco. Il terzo \u00e8 situato presso la localit\u00e0 Is Pirixeddus, ed \u00e8 per fortuna stato sottratto all'urbanizzazione contemporanea.\n\nDa quest'ultimo settore proviene la maggioranza delle conoscenze sulla necropoli punica sulcitana, grazie all'indagine di oltre cinquanta ipogei.\n\nIn epoca romana l'urbanistica doveva in parte ricalcare quella precedente: il pendio orientale della collina continua a rappresentare infatti il fulcro abitativo mentre, oltre alla stessa necropoli di Is Pirixeddus, altri nuclei funerari sono stati individuati in differenti aree dell'attuale citt\u00e0 con un'ampia estensione a sud."
+      },
+      en: {title:"The Necropolis of Is Pirixeddus in Ancient Urban Planning",location:"Is Pirixeddus",description:"[Insert English description]\n\n[Additional placeholder text.]"},
+      fr: {title:"La N\u00e9cropole d'Is Pirixeddus dans l'Urbanisme Antique",location:"Is Pirixeddus",description:"[Ins\u00e9rez la description en fran\u00e7ais]\n\n[Texte suppl\u00e9mentaire placeholder.]"},
+      de: {title:"Die Nekropole von Is Pirixeddus in der antiken Stadtplanung",location:"Is Pirixeddus",description:"[Deutsche Beschreibung einf\u00fcgen]\n\n[Weiterer Platzhaltertext.]"},
+    }
+  },
+  {
+    id: 2,
+    era: "VI sec. a.C. \u2013 III sec. a.C.",
+    category: "punica",
+    img: "https://images.unsplash.com/photo-1605106702842-01a887a31122?w=800&q=80",
+    duration: {it:"5:00",en:"5:00",fr:"5:00",de:"5:00"},
+    audio: {it:null,en:null,fr:null,de:null},
+    t: {
+      it: {
+        title: "La fase punica",
+        location: "Ipogei",
+        description: "Gli ipogei sono spazi sotterranei scavati adattando la loro disposizione e il loro orientamento alla conformazione naturale della roccia. Per accedere agli ipogei \u00e8 necessario percorrere alti dromoi, \u201ccorridoi\u201d scalinati di discesa alla camera funeraria sotterranea, fulcro del rituale di passaggio.\n\nL'ambiente ipogeo era una stanza di forma quadrata o trapezoidale, strutturata come spazio unitario o dotata di tramezzo o pilastro centrale che divide la camera in due grandi e distinti spazi.\n\nLe pareti erano dotate di nicchie rettangolari, in rari casi invece sono attestati altri elementi architettonici come per esempio strisce rosse alle pareti, con sarcofagi scavati nella roccia oppure inconsuete camere multiple.\n\nIl defunto inumato veniva calato nella camera e adagiato su un sarcofago o su una semplice tavola lignea, accompagnato da oggetti che lo conducevano ritualmente nell'aldil\u00e0, adagiati presso i piedi, la testa, sul coperchio del sarcofago o nelle nicchie delle pareti.\n\nIl sepolcro costituiva un vero e proprio spazio ideologico, dove ogni particolare rispondeva a precise esigenze rituali con una forte gerarchizzazione degli spazi. Si trattava di una vera e propria \u00abscenografia della morte\u00bb in cui anche l'architettura concorreva alla rappresentazione simbolica di credenze e usanze specifiche legate al passaggio alla vita ultraterrena.\n\nAl termine delle cerimonie per la deposizione, la camera veniva sigillata generalmente con un portellone di pietra o con dei mattoni crudi per essere riaperta periodicamente.\n\nAll'esterno del sepolcro venivano celebrati rituali post mortem attraverso la rottura rituale di vasetti porta unguenti o doppie patere nel dromos, forse per attenuare le esalazioni della morte.\n\nGli ipogei potevano ospitare al loro interno un numero variabile di individui, riconducibili a gruppi familiari o socialmente vincolati, deposti per numerose generazioni con un utilizzo continuativo delle camere della morte per pi\u00f9 secoli."
+      },
+      en: {title:"The Punic Phase",location:"Hypogea",description:"[Insert English description]\n\n[Additional placeholder text.]"},
+      fr: {title:"La Phase Punique",location:"Hypog\u00e9es",description:"[Ins\u00e9rez la description en fran\u00e7ais]\n\n[Texte suppl\u00e9mentaire placeholder.]"},
+      de: {title:"Die Punische Phase",location:"Hypog\u00e4en",description:"[Deutsche Beschreibung einf\u00fcgen]\n\n[Weiterer Platzhaltertext.]"},
+    }
+  },
+  {
+    id: 3,
+    era: "III sec. a.C. \u2013 IV sec. d.C.",
+    category: "romana",
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    duration: {it:"5:00",en:"5:00",fr:"5:00",de:"5:00"},
+    audio: {it:null,en:null,fr:null,de:null},
+    t: {
+      it: {
+        title: "La fase romana",
+        location: "Is Pirixeddus",
+        description: "Tra la fase tardo-punica e l'et\u00e0 romana repubblicana (terzo-primo secolo a.C.), si assiste al ritorno del rituale funerario dell'incinerazione dei defunti, probabilmente per influenza greca.\n\nA Sulcis, all'interno dei sepolcri ipogei si possono trovare infatti le ceneri dei defunti poste all'interno di urne in terracotta, in cassette di stoffa o lignee o di piombo e, pi\u00f9 tardi, di pietra lavorata, adagiate ai lati d'ingresso di numerosi ipogei.\n\nAnche in seguito (Primo-quarto secolo d.C.) parte dell'area di Is Pirixeddus, continua ad avere un uso funerario, con varie tipologie tombali e l'uso sia dell'inumazione che della cremazione: le tombe alla cappuccina, con il defunto deposto su tegoloni e successivamente ricoperto con embrici a formare un tettuccio; tombe in fossa scavata nella terra; tombe in enchytrismos, cio\u00e8 in anfore tagliate per l'introduzione del defunto; tombe ad incinerazione coi resti del defunto collocati in un vaso (anfora, brocca, urna) deposto nel terreno con un cippo o un segnacolo.\n\nAlcuni mausolei erano destinati alla classe pi\u00f9 abbiente: nell'area sono stati rinvenuti elementi architettonici come capitelli, elementi di trabeazione, soglie e blocchi di grandi dimensioni.\n\nAltri monumenti funerari isolati di una certa importanza erano ad esempio quello di \u201cSa Presonedda\u201d, tuttora visibile presso la via Eleonora d'Arborea.\n\nI corredi di solito erano composti da brocche di produzione locale, lucerne e sigillate africane, vetri e sporadici elementi di accompagnamento, mentre da alcune tombe provengono reperti di pregio, come gioielli, o la statuina detta \u201cdella Venere bionda\u201d, dotata di una ricca decorazione pittorica.\n\nAlcune epigrafi offrono informazioni sulle modalit\u00e0 con cui i defunti venivano onorati e su come veniva celebrato il loro status sociale."
+      },
+      en: {title:"The Roman Phase",location:"Is Pirixeddus",description:"[Insert English description]\n\n[Additional placeholder text.]"},
+      fr: {title:"La Phase Romaine",location:"Is Pirixeddus",description:"[Ins\u00e9rez la description en fran\u00e7ais]\n\n[Texte suppl\u00e9mentaire placeholder.]"},
+      de: {title:"Die R\u00f6mische Phase",location:"Is Pirixeddus",description:"[Deutsche Beschreibung einf\u00fcgen]\n\n[Weiterer Platzhaltertext.]"},
+    }
+  },
+  {
+    id: 4,
+    era: "Et\u00e0 tardoantica",
+    category: "cristiana",
+    img: "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&q=80",
+    duration: {it:"5:00",en:"5:00",fr:"5:00",de:"5:00"},
+    audio: {it:null,en:null,fr:null,de:null},
+    t: {
+      it: {
+        title: "Il percorso ipogeo",
+        location: "Tombe collegate",
+        description: "Le ultime fasi di utilizzo funerario dell'area di Is Pirixeddus si devono alla comunit\u00e0 cristiana dell'antica Sulcis, che riutilizz\u00f2 le tombe a camera di et\u00e0 punica per le proprie deposizioni.\n\nNel percorso proposto si attraversano le camere di quattro tombe puniche rese tra loro comunicanti grazie allo spessore ridotto delle pareti di roccia risparmiate tra l'una e l'altra tomba.\n\nQuesti collegamenti risalgono in parte all'et\u00e0 tardoantica, quando furono riadattati numerosi ipogei alle nuove esigenze funerarie, e in parte all'epoca dei primi scavi archeologici, negli anni Cinquanta del ventesimo secolo, quando furono abbattute alcune pareti interne alla ricerca di altre camere adiacenti di cui era sconosciuto l'ingresso.\n\nLe quattro tombe rispondono alla planimetria diffusa a partire dalla seconda met\u00e0 del quinto secolo a.C.; nelle pareti si pu\u00f2 osservare un numero variabile di nicchie per offerte votive o elementi di corredo, ma anche dalla valenza simbolica.\n\nDi grande interesse sono i marcati segni, nel soffitto delle sepolture, lasciati dagli scalpellini con i loro strumenti, ad evocare l'impegno lavorativo profuso per lo scavo di ciascun ipogeo, per il quale \u00e8 stato calcolato fossero necessari almeno due mesi di lavoro.\n\nTracce degli adattamenti effettuati in et\u00e0 paleocristiana sono ad esempio i sarcofagi ricavati sui pavimenti e i loculi nelle pareti, talvolta con volta a botte a formare un arcosolio."
+      },
+      en: {title:"The Hypogeum Path",location:"Connected tombs",description:"[Insert English description]\n\n[Additional placeholder text.]"},
+      fr: {title:"Le Parcours Hypog\u00e9e",location:"Tombes communicantes",description:"[Ins\u00e9rez la description en fran\u00e7ais]\n\n[Texte suppl\u00e9mentaire placeholder.]"},
+      de: {title:"Der Hypog\u00e4ische Rundgang",location:"Verbundene Gr\u00e4ber",description:"[Deutsche Beschreibung einf\u00fcgen]\n\n[Weiterer Platzhaltertext.]"},
+    }
+  },
+  {
+    id: 5,
+    era: "Et\u00e0 paleocristiana",
+    category: "cristiana",
+    img: "https://images.unsplash.com/photo-1605106702842-01a887a31122?w=800&q=80",
+    duration: {it:"5:00",en:"5:00",fr:"5:00",de:"5:00"},
+    audio: {it:null,en:null,fr:null,de:null},
+    t: {
+      it: {
+        title: "La catacomba",
+        location: "Tombe 3 e 4",
+        description: "In questo ipogeo gli abitanti romani dell'antica Sulcis misero in comunicazione, mediante l'abbattimento del setto murario a nord-ovest, due tombe (la numero 3 e la numero 4) verosimilmente gi\u00e0 riutilizzate nel corso dei secoli.\n\nDeposero i propri defunti in sarcofagi scavati nella roccia e sormontati da una nicchia arcuata (arcosolio), nonch\u00e9 in loculi alle pareti e in fosse terragne (formae), secondo un uso ampiamente attestato nella stessa Sulcis nelle pi\u00f9 note catacombe situate sotto l'attuale Basilica dedicata al martire Antiochus, che presentano i caratteri tipici degli impianti comunitari paleocristiani resi famosi dagli esempi di Roma, della Sicilia e di Napoli.\n\nAltre tombe, poste tra l'altro nelle immediate vicinanze di questo ipogeo, mostrano le medesime modalit\u00e0 di riutilizzo, anche se non sono collegate tra loro.\n\nLa tomba in cui ci troviamo venne scoperta nel 1954, quando destat\u00f2 grande interesse per la presenza di un arcosolio decorato da pitture datate all'inizio del quarto secolo d.C.\n\nLe modalit\u00e0 con cui allora si conducevano gli scavi (procedendo spesso in orizzontale nel sottosuolo, attraverso piccoli fori aperti nelle pareti delle camere alla scoperta di tombe adiacenti), non permettono di definire con certezza la sistemazione dei reperti qui messi in luce, alcuni dei quali confluirono nella Collezione Armeni.\n\nTuttavia, mettendo insieme le informazioni desunte dai giornali di scavo e dagli elenchi dei materiali, \u00e8 stato possibile individuare tra i corredi, verosimilmente riconducibili a questa catacomba, alcune lucerne con motivi decorativi sul disco assai noti come la croce monogrammatica e il pesce, databili tra il quinto ed il settimo secolo, che suggerirebbero una committenza cristiana della tomba."
+      },
+      en: {title:"The Catacomb",location:"Tombs 3 and 4",description:"[Insert English description]\n\n[Additional placeholder text.]"},
+      fr: {title:"La Catacombe",location:"Tombes 3 et 4",description:"[Ins\u00e9rez la description en fran\u00e7ais]\n\n[Texte suppl\u00e9mentaire placeholder.]"},
+      de: {title:"Die Katakombe",location:"Gr\u00e4ber 3 und 4",description:"[Deutsche Beschreibung einf\u00fcgen]\n\n[Weiterer Platzhaltertext.]"},
+    }
+  },
+  {
+    id: 6,
+    era: "Inizio IV sec. d.C.",
+    category: "cristiana",
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    duration: {it:"5:00",en:"5:00",fr:"5:00",de:"5:00"},
+    audio: {it:null,en:null,fr:null,de:null},
+    t: {
+      it: {
+        title: "L'arcosolio dipinto",
+        location: "Tomba dell'affresco",
+        description: "Nel 1954, durante le prime fasi di ricerca archeologica nella necropoli, venne messa in luce la tomba \u201cdell'affresco\u201d, cos\u00ec chiamata proprio per la presenza di un arcosolio dipinto.\n\nNel 1971, al fine di preservare le pitture, il monumento funerario venne asportato e sistemato presso il Museo Archeologico di Cagliari, dove venne esposto al pubblico in seguito al suo restauro. L'affresco visibile sul posto \u00e8 una copia della decorazione originale.\n\nIl fronte dell'arcosolio presenta un ramo dotato di piccole foglie lanceolate, e ai lati alcuni elementi rettangolari di vari colori distesi uno sull'altro, i quali verosimilmente rappresentano un nastro avvolto attorno a un oggetto, forse di natura vegetale, ora non pi\u00f9 percepibile.\n\nNel parapetto \u00e8 dipinta una serie di festoni rossi intrecciati fra loro, nei cui spazi di risulta sono inserite ceste con frutti e fiori, elementi tipici del repertorio funerario. Tulipani rossi su alto stelo sono rappresentati nel sottarco e nella lunetta. Su quest'ultima campeggia l'immagine di un individuo femminile, interpretato come la defunta, raffigurato a mezzo busto entro una cornice, a imitazione di un quadro-ritratto appeso alla parete. Il personaggio indossa una tunica gialla con larghi clavi (fasce) rossi e presenta carnagione scura e i tratti del viso marcati, elementi che suggeriscono la sua possibile origine africana.\n\nLa pittura \u00e8 datata all'inizio del quarto secolo e presenta i caratteri stilistici tipici della ritrattistica di et\u00e0 costantiniana, come la resa marcata dei tratti del volto e degli occhi, sottolineati da una linea scura."
+      },
+      en: {title:"The Painted Arcosolium",location:"Tomb of the Fresco",description:"[Insert English description]\n\n[Additional placeholder text.]"},
+      fr: {title:"L'Arcosolium Peint",location:"Tombe de la fresque",description:"[Ins\u00e9rez la description en fran\u00e7ais]\n\n[Texte suppl\u00e9mentaire placeholder.]"},
+      de: {title:"Das Bemalte Arkosolium",location:"Grab des Freskos",description:"[Deutsche Beschreibung einf\u00fcgen]\n\n[Weiterer Platzhaltertext.]"},
+    }
+  },
+];
 
 let lang = 'it', filter = 'all', curAudio = null, curRoom = null, playing = false;
 
@@ -269,7 +379,7 @@ function renderCards() {
   const list = filter === 'all' || filter === filterCats[0] ? rooms : rooms.filter(r => r.category === filter);
   document.getElementById('grid').innerHTML = list.map(r => {
     const t = r.t[lang];
-    const snippet = t.description.replace(/\n/g,' ').slice(0,160)+'…';
+    const snippet = t.description.replace(/\n/g,' ').slice(0,160)+'\u2026';
     return `<div class="card" onclick="openModal(${r.id})">
       <div class="card-img">
         <img src="${r.img}" alt="${t.title}" loading="lazy">
@@ -282,7 +392,7 @@ function renderCards() {
         <div class="card-text">${snippet}</div>
       </div>
       <div class="card-footer">
-        <span class="card-duration">⏱ ${r.duration[lang]}</span>
+        <span class="card-duration">&#9201; ${r.duration[lang]}</span>
         <button class="btn-listen">${u.listenBtn}</button>
       </div>
     </div>`;
