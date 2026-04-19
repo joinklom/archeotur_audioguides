@@ -34,7 +34,7 @@
   /* QR CARD */
   .qr-card { background: var(--white); display: flex; flex-direction: column; align-items: center; padding: 32px 24px 28px; position: relative; }
   .qr-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--accent-color); }
-  .qr-number { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+  .qr-number { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px;}
   .qr-box { width: 200px; height: 200px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
   .qr-box canvas, .qr-box img { width: 200px !important; height: 200px !important; }
   .qr-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; text-align: center; margin-bottom: 6px; line-height: 1.2; }
@@ -65,7 +65,7 @@
 <div class="url-editor">
   <label>URL base del sito (dove caricherai i file HTML)</label>
   <div class="url-row">
-    <input type="text" id="baseUrl" placeholder="https://tuodominio.it/" value="https://tuodominio.it/">
+    <input type="text" id="baseUrl" placeholder="joinklom.github.io/archeotur_audioguides" value ="joinklom.github.io/archeotur_audioguides">
     <button onclick="regenerateAll()">Aggiorna QR</button>
   </div>
   <div class="url-note">
@@ -82,11 +82,11 @@
 
 <script>
 const sites = [
-  { slug: "museo",      name: "Museo Etnografico",         file: "museo.html",      color: "#c0672a" },
-  { slug: "villaggio",  name: "Villaggio Ipogeo",           file: "villaggio.html",  color: "#5a7a4a" },
-  { slug: "forte",      name: "Forte Sabaudo",              file: "forte.html",      color: "#4a6a8a" },
-  { slug: "necropoli",  name: "Necropoli di Is Pirixeddus", file: "necropoli.html",  color: "#7a5a8a" },
-  { slug: "acropoli",   name: "Acropoli",                   file: "acropoli.html",   color: "#8a6a3a" },
+  { slug: "museo",      name: `-Museo Etnografico <br> -Ethnographic Museum`,         file: "museo.html",      color: "#c0672a" },
+  { slug: "villaggio",  name: "-Villaggio Ipogeo  <br> -Hypogean Village",           file: "villaggio.html",  color: "#5a7a4a" },
+  { slug: "forte",      name: "-Forte Sabaudo  <br> -Savoy Fortress",              file: "forte.html",      color: "#4a6a8a" },
+  { slug: "necropoli",  name: "-Necropoli di Is Pirixeddus <br> -Necropolis of Is Pirixeddus", file: "necropoli.html",  color: "#7a5a8a" },
+  { slug: "acropoli",   name: "-Acropoli <br> -Acropolis",                   file: "acropoli.html",   color: "#8a6a3a" },
 ];
 
 function getBase() {
@@ -107,11 +107,10 @@ function regenerateAll() {
     card.style.setProperty('--accent-color', site.color);
 
     card.innerHTML = `
-      <div class="qr-number">Sito ${i + 1} di ${sites.length}</div>
       <div class="qr-box" id="qr-${site.slug}"></div>
       <div class="qr-name">${site.name}</div>
       <div class="qr-url">${url}</div>
-      <span class="qr-filename" style="background:${site.color}">${site.file}</span>
+      <!-- <span class="qr-filename" style="background:${site.color}">${site.file}</span> --> 
     `;
     grid.appendChild(card);
 
