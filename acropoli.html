@@ -294,6 +294,7 @@ function openModal(id) {
   stopAudio(); refreshModal(id); setupAudio();
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
+  history.pushState({ modal: id }, '');
 }
 function refreshModal(id) {
   const r = rooms.find(x => x.id === id);
@@ -322,8 +323,17 @@ function setupAudio() {
   } else { curAudio = null; }
 }
 function closeModal(e) { if (e.target===document.getElementById('modalOverlay')) closeModalDirect(); }
-function closeModalDirect() { stopAudio(); curRoom=null; document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow=''; }
-function fmt(s) { if(isNaN(s))return'0:00'; return`${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`; }
+function closeModalDirect() {
+  stopAudio(); curRoom = null;
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  if (history.state && history.state.modal) history.back();
+}
+function closeModalNoHistory() {
+  stopAudio(); curRoom = null;
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}function fmt(s) { if(isNaN(s))return'0:00'; return`${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`; }
 function togglePlay() { if(!curAudio){alert(UI[lang].noAudio);return;} if(playing){curAudio.pause();playing=false;}else{curAudio.play();playing=true;} updatePlayIcon(); }
 function stopAudio() { if(curAudio){curAudio.pause();curAudio.currentTime=0;} playing=false; updatePlayIcon(); }
 function updatePlayIcon() {
@@ -337,6 +347,9 @@ function setVolume(v) { if(curAudio)curAudio.volume=parseFloat(v); }
 document.addEventListener('keydown', e => {
   if(e.key==='Escape')closeModalDirect();
   if(e.key===' '&&document.getElementById('modalOverlay').classList.contains('open')){e.preventDefault();togglePlay();}
+});
+ window.addEventListener('popstate', () => {
+  if (document.getElementById('modalOverlay').classList.contains('open')) closeModalNoHistory();
 });
 setLanguage('it');
 </script>
