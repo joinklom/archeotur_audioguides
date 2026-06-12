@@ -29,11 +29,11 @@
   .lang-option:hover { background: var(--sand); }
   .lang-option.active { color: var(--accent); font-weight: 500; }
   .hero { padding: 70px 5vw 50px; max-width: 720px; }
-  .hero-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 4px 12px; border-radius: 2px; margin-bottom: 20px; opacity: 0.8; }
+  //.hero-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 4px 12px; border-radius: 2px; margin-bottom: 20px; opacity: 0.8; }
   .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 300; line-height: 1.15; margin-bottom: 16px; }
   .hero h1 em { font-style: italic; color: var(--accent); }
   .hero p { font-size: 0.95rem; color: var(--smoke); line-height: 1.7; max-width: 520px; }
-  .filter-bar { padding: 0 5vw 36px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-bar { padding: 0 5vw 36px; display: none; gap: 8px; flex-wrap: wrap; }
   .filter-btn { background: none; border: 1px solid var(--stone); color: var(--smoke); font-family: 'DM Sans', sans-serif; font-size: 0.78rem; letter-spacing: 0.08em; padding: 6px 16px; border-radius: 100px; cursor: pointer; transition: all 0.2s; }
   .filter-btn:hover, .filter-btn.active { background: var(--ink); border-color: var(--ink); color: var(--white); }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2px; padding: 0 5vw; margin-bottom: 80px; }
@@ -46,7 +46,7 @@
   .audio-badge { position: absolute; top: 12px; right: 12px; background: var(--accent); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
   .audio-badge svg { width: 14px; height: 14px; fill: white; }
   .card-body { padding: 20px 22px 18px; }
-  .card-location { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); margin-bottom: 6px; }
+  .card-location { display: none; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); margin-bottom: 6px; }
   .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; line-height: 1.2; margin-bottom: 10px; }
   .card-text { font-size: 0.82rem; color: var(--smoke); line-height: 1.65; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
   .card-footer { display: flex; align-items: center; justify-content: space-between; padding: 14px 22px; border-top: 1px solid var(--stone); }
@@ -62,7 +62,7 @@
   .modal-img { width: 100%; aspect-ratio: 16/7; overflow: hidden; }
   .modal-img img { width: 100%; height: 100%; object-fit: cover; }
   .modal-content { padding: 36px 40px 40px; }
-  .modal-meta { display: flex; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
+  .modal-meta { display: none; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
   .modal-tag { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); border: 1px solid var(--stone); padding: 3px 10px; }
   .modal-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 300; line-height: 1.1; margin-bottom: 20px; }
   .modal-description { font-size: 0.9rem; line-height: 1.8; color: var(--smoke); margin-bottom: 32px; }
